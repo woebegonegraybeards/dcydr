@@ -3,12 +3,16 @@ angular.module('appRoutes', [])
 
   $routeProvider
   
-  .when('/view1', {
-    templateUrl: 'views/view1.html'
+  .when('/start', {
+    templateUrl: 'views/start.html'
   })
 
-  .when('/view2', {
-    templateUrl: 'views/view2.html'
+  .when('/voteArea', {
+    templateUrl: 'views/voteArea.html'
+  })
+  
+  .when('/chart', {
+    templateUrl: 'views/chart.html'
   })
 
   .when('/view3', {
@@ -16,7 +20,7 @@ angular.module('appRoutes', [])
   })
 
   .otherwise({
-    redirectTo: "/view1"
+    redirectTo: "/start"
   });
 
   $locationProvider.html5Mode({

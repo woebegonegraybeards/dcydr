@@ -1,4 +1,6 @@
+
 angular.module('MainService', [])
+
 .factory('Main', ['$http', '$location', function($http, $location) {
 
   return {
@@ -12,8 +14,8 @@ angular.module('MainService', [])
 
 
     viewToRouteConverter: {
-      1: '/view1',
-      2: '/view2',
+      1: '/start',
+      2: '/voteArea',
       3: '/view3'
     },
 
@@ -30,54 +32,10 @@ angular.module('MainService', [])
       return $http.get('/api/vote');
     },
 
-    //used from view1, sends number of voters and starts the voting (sets vote to view2)
+    //used from 'start', sends number of voters and starts the voting (sets vote to view2)
     startVoting: function(voterData) {
+      console.log('works', voterData);
       return $http.post('/api/vote', voterData);
-    },
-
-    //sends a vote for 1
-    addVote1: function(vote) {
-      return $http({
-        method: 'POST',
-        url: '/api/vote/1',
-        data: vote
-      });
-    },
-
-    //sends a vote for 2
-    addVote2: function(vote) {
-      return $http({
-        method: 'POST',
-        url: '/api/vote/2',
-        data: vote
-      });
-    },
-
-    //sends a vote for 3
-    addVote3: function(vote) {
-      return $http({
-        method: 'POST',
-        url: '/api/vote/3',
-        data: vote
-      });
-    },
-    
-    //sends a vote for 4
-    addVote4: function(vote) {
-      return $http({
-        method: 'POST',
-        url: '/api/vote/4',
-        data: vote
-      });
-    },
-    
-    //sends a vote for 5
-    addVote5: function(vote) {
-      return $http({
-        method: 'POST',
-        url: '/api/vote/5',
-        data: vote
-      });
     },
     
     //Cancel/Reset - sends a message for server to reset the object

@@ -1,6 +1,10 @@
-angular.module('dcydr', [
+angular.module('SprintPal', [
   'ngRoute',
   'appRoutes',
   'MainCtrl',
-  'MainService'
+  'VoteCtrl',
+  'ChartCtrl',
+  'MainService',
+  'ChartService',
+  'VoteService'
 ]);
