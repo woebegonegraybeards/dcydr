@@ -14,7 +14,7 @@ var PORT = process.env.PORT || 3000;
 
 // Save the HTTP server created with express as a variable in order to reuse for socket.io
 var server = app.listen(PORT);
-console.log('DCYDR listening' + PORT);
+console.log('Listening on', PORT);
 
 // Create the socket variable by passing in the HTTP server we saved above
 var io = socketio(server);
