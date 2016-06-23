@@ -11,7 +11,7 @@ module.exports = {
   four: 0,
   five: 0,
 
-  totalVotes: 3,
+  totalVotes: 3, // Default initial number of voters
   allVotesIn: false, // Flag for all votes received
   result: null, // Result of voting
 
@@ -60,7 +60,14 @@ module.exports = {
     //   //change to state 3 and emit stateViewChange to all clients
     //   this.changeStateView(3);
     // }
-    this.result = 'test';
+    var voteCount = this.one + this.two + this.three + this.four + this.five;
+    var voteSum = (this.one * 1) + (this.two * 2) + (this.three * 3) + (this.four * 4) + (this.five * 5);
+
+    if (voteCount === this.totalVotes) {
+      this.allVotesIn = true;
+      this.result = parseFloat(voteSum / voteCount);
+    }
+
     this.changeStateView(3);
   },
 

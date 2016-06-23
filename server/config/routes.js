@@ -20,45 +20,33 @@ module.exports = function(app) {
       res.send(voteSession);
     });
 
-  app.route('/1')
-    //handle yes vote
-    .post(function(req, res) {
-      voteSession.voteOne();
-      res.send(voteSession);
-    });
+  app.route('/1').post(function(req, res) {
+    voteSession.voteOne();
+    res.send(voteSession);
+  });
 
-  app.route('/2')
-    //handle no vote
-    .post(function(req, res) {
-      voteSession.voteTwo();
-      res.send(voteSession);
-    });
+  app.route('/2').post(function(req, res) {
+    voteSession.voteTwo();
+    res.send(voteSession);
+  });
 
-  app.route('/3')
-    //handle no vote
-    .post(function(req, res) {
-      voteSession.voteThree();
-      res.send(voteSession);
-    });
+  app.route('/3').post(function(req, res) {
+    voteSession.voteThree();
+    res.send(voteSession);
+  });
 
-  app.route('/4')
-    //handle no vote
-    .post(function(req, res) {
-      voteSession.voteFour();
-      res.send(voteSession);
-    });
+  app.route('/4').post(function(req, res) {
+    voteSession.voteFour();
+    res.send(voteSession);
+  });
 
-  app.route('/5')
-    //handle no vote
-    .post(function(req, res) {
-      voteSession.voteFive();
-      res.send(voteSession);
-    });
+  app.route('/5').post(function(req, res) {
+    voteSession.voteFive();
+    res.send(voteSession);
+  });
 
-  app.route('/reset')
-    //handle reset/cancel request
-    .post(function(req, res) {
-      voteSession.voteReset();
-      res.send(voteSession);
-    });
+  app.route('/reset').post(function(req, res) {
+    voteSession.voteReset();
+    res.send(voteSession);
+  });
 };
