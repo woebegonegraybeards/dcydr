@@ -1,7 +1,17 @@
 <div class="jumbotron text-center">
 
-  <button class="vote" ng-click="postVoteYes()">Yes</button>
-  <button class="vote" ng-click="postVoteNo()">No</button>
+  <div ng-controller='ChartController'>
+    <div ng-view></div>
+  </div>
+  
+  <div ng-controller='VotingController'>
+    <button class="vote" ng-click="postVote1()">1</button>
+    <button class="vote" ng-click="postVote2()">2</button>
+    <button class="vote" ng-click="postVote3()">3</button>
+    <button class="vote" ng-click="postVote4()">4</button>
+    <button class="vote" ng-click="postVote5()">5</button>
+  </div>
+
 
   <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
 </div>
