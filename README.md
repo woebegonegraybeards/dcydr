@@ -1,12 +1,12 @@
-# Project Name
+# SprintPal
 
-DCYDR will allow your group to make a decision, quickly and easily.
+TBD
 
 ## Team
 
-  - __Product Owner__: Joel
-  - __Scrum Master__: Mario
-  - __Development Team Member__: Ruth
+  - __Product Owner__: Andrew Tsao
+  - __Scrum Master__: Brett Celestre
+  - __Development Team Member__: Brett Celestre, Andrew Tsao
 
 ## Table of Contents
 
@@ -19,6 +19,8 @@ DCYDR will allow your group to make a decision, quickly and easily.
 1. [Contributing](#contributing)
 
 ## Usage
+
+(UNDER CONSTRUCTION)
 
 A group is trying to decide whether or not to a do a particular thing (watch a particular movie, go out to dinner, etc.)
 
@@ -107,6 +109,8 @@ npm install
 
 ### User Views
 
+(UNDER CONSTRUCTION)
+
 You can see the UX/UI sketches of views 1, 2, and 3 here:
 https://drive.google.com/file/d/0ByfR6UjPYbmhSTcweVJaNjRwcWs/view?usp=sharing
 
@@ -114,6 +118,9 @@ https://drive.google.com/file/d/0ByfR6UjPYbmhSTcweVJaNjRwcWs/view?usp=sharing
 
 
 ### Architecture
+
+(UNDER CONSTRUCTION)
+
 
 You can see the sketch of our client and server (and how they interact with each other) here:
 https://drive.google.com/file/d/0ByfR6UjPYbmhaS02R01OZEVsLW8/view?usp=sharing

@@ -1,0 +1,30 @@
+{
+  "name": "sprintpal",
+  "description": "TBD",
+  "main": "index.js",
+  "authors": [
+    "Brett Celestre",
+    "Andrew Tsao"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/woebegonegraybeards/sprintpal",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "latest",
+    "angular-ui-router": "latest",
+    "angular-animate": "latest",
+    "underscore": "^1.8.3",
+    "jquery": "^3.0.0",
+    "angular-sanitize": "^1.5.7"
+  },
+  "resolutions": {
+    "angular": "1.5.7"
+  }
+}

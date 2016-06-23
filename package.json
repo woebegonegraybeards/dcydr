@@ -1,7 +1,7 @@
 {
-  "name": "dcydr",
+  "name": "sprintpal",
   "version": "1.0.0",
-  "description": "voting app",
+  "description": "TBD",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,21 +12,38 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/centillionplus/centillionplus.git"
+    "url": "git+https://github.com/woebegonegraybeards/sprintpal.git"
   },
-  "author": "Mario, Ruth, Joel",
+  "author": "Brett Celestre, Andrew Tsao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/centillionplus/centillionplus/issues"
+    "url": "https://github.com/woebegonegraybeards/sprintpal/issues"
   },
-  "homepage": "https://github.com/centillionplus/centillionplus#readme",
+  "homepage": "https://github.com/woebegonegraybeards/sprintpal#readme",
   "dependencies": {
-    "angular": "^1.5.7",
-    "angular-route": "^1.5.7",
     "body-parser": "^1.15.1",
-    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
     "socket.io": "^1.4.6",
     "socket.io-client": "^1.4.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "cssnano": "^3.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-postcss": "^6.1.1",
+    "postcss": "^5.0.21",
+    "postcss-calc": "^5.2.1",
+    "postcss-clearfix": "^1.0.0",
+    "postcss-color-function": "^2.0.1",
+    "postcss-css-reset": "^1.0.2",
+    "postcss-grid": "^2.0.0",
+    "postcss-import": "^8.1.2",
+    "postcss-map": "^0.8.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-opacity": "^3.0.0",
+    "postcss-simple-media-queries": "^1.0.1",
+    "postcss-simple-vars": "^2.0.0"
   }
 }

@@ -15,7 +15,7 @@ module.exports = function (app, express) {
   app.use(bodyParser.json());
 
   //serve index
-  app.use(express.static(__dirname + '/../../public'));
+  app.use(express.static(__dirname + '/../../client'));
 
   //inject routes into Router
   routes(voteRouter);
