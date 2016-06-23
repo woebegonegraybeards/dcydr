@@ -109,20 +109,21 @@ textarea:focus, input:focus{
 .vote {
 /*  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;*/
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
   text-align: center;
   color: #663399;
   background-color: #eee;
   font-size: 33px;
+  line-height: 33px;
   font-weight: bold;
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-  display: block;
+  width: 75px;
+  height: 40px;
+  border-radius: 2px;
+  display: inline-block;
   margin: auto;
   border: 1px solid #663399;
-  margin-top: 0px;
-  margin-bottom: 40px;
+  padding: 0 0 0px 0;
+  margin: 0px 15px 0 0;
 }
 
 .plusMinus:active {
