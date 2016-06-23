@@ -1,8 +1,10 @@
+
 angular.module('MainCtrl', [])
+
 .controller('MainController', function($scope, Main, $interval, $location) {
 
   // Stringified defaults obj to copy with JSON parse whenever we need to reset the voter object to defaults
-  $scope.dcydrObjDefaults = JSON.stringify({ 
+  $scope.voteObjDefaults = JSON.stringify({ 
     stateView: 1,
     one: 0,
     two: 0,
@@ -14,21 +16,21 @@ angular.module('MainCtrl', [])
     result: null
   });
 
-  // The voter object $scope.dcydrObj tracks all the data we need to know, mimics the object the server stores
+  // The voter object $scope.voteObj tracks all the data we need to know, mimics the object the server stores
   // Voter object set initially to defaults (copying the defaults object so the two are not connected):
-  $scope.dcydrObj = JSON.parse($scope.dcydrObjDefaults);
+  $scope.voteObj = JSON.parse($scope.voteObjDefaults);
 
   // For displaying user's vote on view3. (Note: we didn't put it in the voter object as a property because it is not on the server's data object)
   $scope.userVote = null;
 
-  // For stting which client started the vote
+  // For setting which client started the vote
   $scope.voteStarter = false;
 
   
-  // Listen to any server-side stateView changes via the socket, and update $scope.dcydrObj accorgingly
+  // Listen to any server-side stateView changes via the socket, and update $scope.voteObj accorgingly
   Main.socket.on('stateViewChange', function(data) {
     // Update the voter object to reflect the new data
-    $scope.dcydrObj = data;
+    $scope.voteObj = data;
     // Change the route as appropriate
     Main.updateView(data.stateView);
     // This line seems to be needed to make sure all clients update appropriately:
@@ -38,19 +40,19 @@ angular.module('MainCtrl', [])
 
 //---view1-------------------------------------------------------
 
-  // When '+' is clicked on view 1, $scope.dcydrObj.totalVotes is incremented  
+  // When '+' is clicked on view 1, $scope.voteObj.totalVotes is incremented  
   $scope.incNumOfVoters = function() {
     // Set max number of voters to 15 for now.  This may change..
-    if ($scope.dcydrObj.totalVotes < 15) {
-      $scope.dcydrObj.totalVotes += 1;
+    if ($scope.voteObj.totalVotes < 15) {
+      $scope.voteObj.totalVotes += 1;
     }
   };
 
-  // When '-' is clicked on view 1, $scope.dcydrObj.totalVotes is decremented  
+  // When '-' is clicked on view 1, $scope.voteObj.totalVotes is decremented  
   $scope.decNumOfVoters = function() {
     // Min number of voters is 2 (maybe could be 3?)
-    if ($scope.dcydrObj.totalVotes > 2) {
-      $scope.dcydrObj.totalVotes -= 1;
+    if ($scope.voteObj.totalVotes > 2) {
+      $scope.voteObj.totalVotes -= 1;
     }
   };
 
@@ -58,55 +60,12 @@ angular.module('MainCtrl', [])
   // Sends POST request to update the server
   // (causes all users views will switch to view 2, handled via sockets)
   $scope.go = function() {
-    Main.startVoting({'votes': $scope.dcydrObj.totalVotes}).
-      catch(function (err) {
+    Main.startVoting({'votes': $scope.voteObj.totalVotes})
+      .catch(function (err) {
         console.log(err);
       }).then(function(){
         //make this client the vote starter
         $scope.voteStarter = true;
-      });
-  };
-
-//---view2------------------------------------------------------
-
-  // Takes user vote input and post to server - called when user clicks Y/N on view 2
-  $scope.postVote1 = function() {
-    $scope.userVote = '1';
-    Main.addVote1().
-      catch(function (err) {
-        console.log(err);
-      });
-  };
-
-  $scope.postVote2 = function() {
-    $scope.userVote = '2';
-    Main.addVote2().
-      catch(function (err) {
-        console.log(err);
-      });
-  };
-  
-  $scope.postVote3 = function() {
-    $scope.userVote = '3';
-    Main.addVote3().
-      catch(function (err) {
-        console.log(err);
-      });
-  };
-  
-  $scope.postVote4 = function() {
-    $scope.userVote = '4';
-    Main.addVote4().
-      catch(function (err) {
-        console.log(err);
-      });
-  };
-  
-  $scope.postVote5 = function() {
-    $scope.userVote = '5';
-    Main.addVote5().
-      catch(function (err) {
-        console.log(err);
       });
   };
 
@@ -115,7 +74,7 @@ angular.module('MainCtrl', [])
     // Confirm pop-up
     if (confirm('Are you sure you want to reset?')) {
       // Reset dcydr object to defaults (copy the defaults object so the two are not connected)
-      $scope.dcydrObj = JSON.parse($scope.dcydrObjDefaults);
+      $scope.voteObj = JSON.parse($scope.voteObjDefaults);
       // Reset voteStarter
       $scope.voteStarter = false;
       // API call to reset state on server
