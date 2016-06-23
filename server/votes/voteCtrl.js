@@ -2,60 +2,66 @@ var server = require('../server.js');
 
 //this contains and modifies the vote session obj
 module.exports = {
-    
-  //current view
+  // Initializations: view, rating counts, total votes, total votes tracked, and final result
   stateView: 1,
 
-  //# of yes votes
-  yes: 0,
+  one: 0,
+  two: 0,
+  three: 0,
+  four: 0,
+  five: 0,
 
-  //# of no votes
-  no: 0,
-
-  //total votes expected
   totalVotes: 3,
+  allVotesIn: false, // Flag for all votes received
+  result: null, // Result of voting
 
-  //tracks when all votes are in
-  allVotesIn: false,
-
-  //result of voting session: strings 'yes','no',or 'tie'
-  result: null,
-
-
-  //adds yes vote and checks for result
-  voteYes: function () {
-    //increment yes
-    this.yes++;
+  voteOne: function () {
+    this.one++;
     this.checkResult();
   },
 
-  //adds no vote checks for result
-  voteNo: function () {
-    //increment no
-    this.no++;
+  voteTwo: function () {
+    this.two++;
+    this.checkResult();
+  },
+
+  voteThree: function () {
+    this.three++;
+    this.checkResult();
+  },
+
+  voteFour: function () {
+    this.four++;
+    this.checkResult();
+  },
+
+  voteFive: function () {
+    this.five++;
     this.checkResult();
   },
 
   //check result
   checkResult: function () {
-    //see if all votes are in
-    if (this.yes + this.no === this.totalVotes) {
-      //all votes are in!
-      this.allVotesIn = true;
-      //check for a winner
-      if (this.yes > this.no) {
-        //set result - yes
-        this.result = 'yes';
-      } else if (this.yes < this.no) {
-        //set result - no
-        this.result = 'no';
-      } else {
-        //set result - tie
-        this.result = 'tie';
-      }
-      //change to state 3 and emit stateViewChange to all clients
-      this.changeStateView(3);
-    }
+    // //see if all votes are in
+    // if (this.yes + this.no === this.totalVotes) {
+    //   //all votes are in!
+    //   this.allVotesIn = true;
+    //   //check for a winner
+    //   if (this.yes > this.no) {
+    //     //set result - yes
+    //     this.result = 'yes';
+    //   } else if (this.yes < this.no) {
+    //     //set result - no
+    //     this.result = 'no';
+    //   } else {
+    //     //set result - tie
+    //     this.result = 'tie';
+    //   }
+    //   //change to state 3 and emit stateViewChange to all clients
+    //   this.changeStateView(3);
+    // }
+    this.result = 'test';
+    this.changeStateView(3);
   },
 
   setTotalVotes: function (num) {
@@ -70,11 +76,11 @@ module.exports = {
 
     this.stateView = 1;
 
-    //# of yes votes
-    this.yes = 0;
-
-    //# of no votes
-    this.no = 0;
+    this.one = 0;
+    this.two = 0;
+    this.three = 0;
+    this.four = 0;
+    this.five = 0;
 
     //total votes expected
     this.totalVotes = 3;

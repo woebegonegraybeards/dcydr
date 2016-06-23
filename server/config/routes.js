@@ -20,17 +20,38 @@ module.exports = function(app) {
       res.send(voteSession);
     });
 
-  app.route('/yes')
+  app.route('/1')
     //handle yes vote
     .post(function(req, res) {
-      voteSession.voteYes();
+      voteSession.voteOne();
       res.send(voteSession);
     });
 
-  app.route('/no')
+  app.route('/2')
     //handle no vote
     .post(function(req, res) {
-      voteSession.voteNo();
+      voteSession.voteTwo();
+      res.send(voteSession);
+    });
+
+  app.route('/3')
+    //handle no vote
+    .post(function(req, res) {
+      voteSession.voteThree();
+      res.send(voteSession);
+    });
+
+  app.route('/4')
+    //handle no vote
+    .post(function(req, res) {
+      voteSession.voteFour();
+      res.send(voteSession);
+    });
+
+  app.route('/5')
+    //handle no vote
+    .post(function(req, res) {
+      voteSession.voteFive();
       res.send(voteSession);
     });
 
