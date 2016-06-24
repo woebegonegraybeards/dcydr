@@ -37,6 +37,7 @@ angular.module('MainCtrl', [])
     $scope.$apply();
   });
 
+  $scope.voteObj
 
 //---view1-------------------------------------------------------
 

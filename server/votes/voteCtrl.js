@@ -66,9 +66,9 @@ module.exports = {
     if (voteCount === this.totalVotes) {
       this.allVotesIn = true;
       this.result = parseFloat(voteSum / voteCount);
+      // this.changeStateView(3);
     }
 
-    this.changeStateView(3);
   },
 
   setTotalVotes: function (num) {
