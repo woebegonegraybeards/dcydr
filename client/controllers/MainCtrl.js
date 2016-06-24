@@ -37,7 +37,7 @@ angular.module('MainCtrl', [])
     $scope.$apply();
   });
 
-  $scope.voteObj
+  // $scope.voteObj
 
 //---view1-------------------------------------------------------
 
@@ -61,7 +61,7 @@ angular.module('MainCtrl', [])
   // Sends POST request to update the server
   // (causes all users views will switch to view 2, handled via sockets)
   $scope.go = function() {
-    Main.startVoting({'votes': $scope.voteObj.totalVotes})
+    Main.startVoting({'votes': $scope.voteObj.totalVotes})  // We want to send all of the votes, not just the total
       .catch(function (err) {
         console.log(err);
       }).then(function(){

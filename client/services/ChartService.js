@@ -10,7 +10,7 @@ angular.module('ChartService', [])
     // socket: io('https://dcydr.herokuapp.com'),
 
     // IF INSTEAD you're running your app locally, just comment out the line above and uncomment the line below. Remember to switch it back before commiting!
-    socket: io('localhost:3000'),
+    // socket: io('localhost:3000'),
 
     // viewToRouteConverter: {
     //   1: '/view1',
