@@ -22,7 +22,8 @@
     "angular-animate": "latest",
     "underscore": "^1.8.3",
     "jquery": "^3.0.0",
-    "angular-sanitize": "^1.5.7"
+    "angular-sanitize": "^1.5.7",
+    "highcharts-ng": "^0.0.11"
   },
   "resolutions": {
     "angular": "1.5.7"

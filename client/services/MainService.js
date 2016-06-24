@@ -16,7 +16,8 @@ angular.module('MainService', [])
     viewToRouteConverter: {
       1: '/start',
       2: '/voteArea',
-      3: '/view3'
+      3: '/view3',
+      4: '/chart'
     },
 
     // When we need to update the view
@@ -34,7 +35,6 @@ angular.module('MainService', [])
 
     //used from 'start', sends number of voters and starts the voting (sets vote to view2)
     startVoting: function(voterData) {
-      console.log('works', voterData);
       return $http.post('/api/vote', voterData);
     },
     

@@ -4,7 +4,9 @@ angular.module('SprintPal', [
   'MainCtrl',
   'VoteCtrl',
   'ChartCtrl',
+  'ChartDirective',
   'MainService',
   'ChartService',
-  'VoteService'
+  'VoteService',
+  // 'highcharts-ng'
 ]);

@@ -4,6 +4,8 @@ angular.module('VoteCtrl', [])
 .controller('VotingController', function($scope, Vote, $interval, $location) {
   
   //---view2------------------------------------------------------
+  
+  $scope.chartOne = 0;
 
   // Takes user vote input and post to server - called when user clicks Y/N on view 2
   $scope.postVote1 = function() {
