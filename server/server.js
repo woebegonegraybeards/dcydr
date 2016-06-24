@@ -1,10 +1,12 @@
 var express = require('express');
-var middleware = require('./config/middleware.js');
 var socketio = require('socket.io');
+var mongoose = require('mongoose');
+var middleware = require('./config/middleware.js');
 
 // express server instance
 var app = express();
 
+mongoose.connect('mongodb://localhost/sprintpal');
 
 //SET UP MIDDLEWARE + ROUTES
 middleware(app, express);
