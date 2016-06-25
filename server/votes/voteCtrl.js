@@ -18,26 +18,31 @@ module.exports = {
   voteOne: function () {
     this.one++;
     this.checkResult();
+    server.io.emit('stateViewChange', this);
   },
 
   voteTwo: function () {
     this.two++;
     this.checkResult();
+    server.io.emit('stateViewChange', this);
   },
 
   voteThree: function () {
     this.three++;
     this.checkResult();
+    server.io.emit('stateViewChange', this);
   },
 
   voteFour: function () {
     this.four++;
     this.checkResult();
+    server.io.emit('stateViewChange', this);
   },
 
   voteFive: function () {
     this.five++;
     this.checkResult();
+    server.io.emit('stateViewChange', this);
   },
 
   //check result
@@ -97,6 +102,7 @@ module.exports = {
 
     //result of voting session: strings 'yes','no',or 'tie'
     this.result = null;
+    server.io.emit('stateViewChange', this);
   },
 
   // change the stateView and emit it for the client to act upon

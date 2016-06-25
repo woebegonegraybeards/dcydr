@@ -16,10 +16,17 @@ var PORT = process.env.PORT || 3000;
 
 // Save the HTTP server created with express as a variable in order to reuse for socket.io
 var server = app.listen(PORT);
-console.log('Listening on', PORT);
+console.log('Listening on', PORT);    
 
-// Create the socket variable by passing in the HTTP server we saved above
-var io = socketio(server);
+// Attach socket.io to our web server
+io = socketio.listen(server);
 
+io.sockets.on('connection', function(socket) {
+  socket.on('event', function(event) {
+    console.log('socket on event: ');
+    socket.join(event);
+  });
+});
+    
 // Export the socket so we can have it listen and emit elsewhere (used in voteCtrl):
 module.exports.io = io;
