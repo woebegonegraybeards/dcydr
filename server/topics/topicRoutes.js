@@ -7,11 +7,14 @@ module.exports = function(app) {
 
   app.route('/')
     .get(function(req, res) {
-      console.log('api/topic GET ran -------------------: ');
-      topicController.allTopics();
-      server.io.emit('onTopicConnection', topicController);
+      // console.log('api/topic GET ran -------------------: ');
+      // topicController.allTopics();
+      // console.log('topicController', topicController);
       // server.io.emit('onTopicConnection', topicController);
-      res.send(topicController);
+      
+      
+      // // server.io.emit('onTopicConnection', topicController);
+      // res.send(topicController);
     })
     .post(function(req, res) {
       console.log('api/topic POST ran -------------------: ', req.body.topic);

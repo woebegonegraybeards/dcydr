@@ -20,11 +20,16 @@ module.exports = {
     });
   },
 
+
   allTopics: function(req, res) {
     Topic.find({}).then(function(topics) {
       // res.json(topics);
+      // console.log('allTopics -------------------: ', topics);
       this.topics = topics;
-      // server.io.emit('onTopicConnection', this);
+      
+      console.log('this.topics: ', this.topics);
+      
+      server.io.emit('onTopicsConnection', this);
       // res.send(this);
     }).catch(function(error) {
       console.error(error);
