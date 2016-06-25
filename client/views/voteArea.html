@@ -7,7 +7,10 @@
   <div ng-controller='VotingController'>
     One = {{ one }}<br>
     Two = {{ two }}<br>
-    <hc-chart options="chartOptions" votes=''>Placeholder for generic chart</hc-chart>
+    <!-- <hc-chart options="chartOptions"
+              attribute-foo="{{foo}}" 
+              binding-foo="foo">Placeholder for generic chart</hc-chart> -->
+    <div class="hc-chart" items="limitedIdeas"></div>
     <button class="vote" ng-click="postVote1()">1</button>
     <button class="vote" ng-click="postVote2()">2</button>
     <button class="vote" ng-click="postVote3()">3</button>
