@@ -22,16 +22,22 @@ module.exports = {
 
 
   allTopics: function(req, res) {
-    Topic.find({}).then(function(topics) {
+    Topic.find({})
+      .then(function(topics) {
       // res.json(topics);
-      // console.log('allTopics -------------------: ', topics);
+      console.log('allTopics -------------------: ');
       this.topics = topics;
+      // console.log('this.topics: ', this.topics);
       
-      console.log('this.topics: ', this.topics);
+      // server.io.emit('onTopicsConnection', this);
       
-      server.io.emit('onTopicsConnection', this);
       // res.send(this);
-    }).catch(function(error) {
+      // return this;
+    })
+    // .then(function(){
+    //   server.io.emit('onTopicsConnection', this);
+    // })
+    .catch(function(error) {
       console.error(error);
     });
   },
@@ -39,10 +45,10 @@ module.exports = {
   newTopic: function(data) {
     var topic = data;
     
-    console.log('topic from topicController: ', topic);
+    // console.log('topic from topicController: ', topic);
     
-    this.topics.push(topic);
-    server.io.emit('onTopicPost', this);
+    // this.topics.push(topic);
+    // server.io.emit('onTopicPost', this);
 
     Topic.findOne({desc: topic}).then(function(match) {
       if (match) {

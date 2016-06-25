@@ -9,17 +9,17 @@ module.exports = function(app) {
   app.route('/')
     //get voting session obj
     .get(function(req, res) {
-      // server.io.emit('stateViewChange', topicController);
       
-      // server.io.emit('onConnection', voteController);
+      // topicController.allTopics();
+      // console.log('topicController: ', topicController);
+      
+      // CLEAN BELOW
+      server.io.emit('onConnection', voteController);
       res.send(voteController);
     })
 
     //set totalVotes
     .post(function(req, res) {
-      topicController.allTopics();
-      console.log('topicController', topicController);
-      // server.io.emit('onTopicConnection', topicController);
       //parse number of voters from string to number
       var totalVotes = parseInt(req.body.votes);
       // Send the number of total votes to our method in voteCtrl to handle all that needs to happen

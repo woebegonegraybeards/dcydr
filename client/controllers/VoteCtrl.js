@@ -3,16 +3,6 @@ angular.module('VoteCtrl', [])
 
 .controller('VotingController', function($scope, Vote, Main, $interval, $location) {
   
-  // $scope.chartData = [
-  //   ['ideas1', 0],
-  //   ['ideas2', 0],
-  //   ['ideas3', 0],
-  //   ['ideas3', 0],
-  //   ['ideas3', 0]
-  // ];
-  
-  // $scope.voterCount = 3;
-  
   $scope.chartData = [
     [0],
     [0],
@@ -27,13 +17,6 @@ angular.module('VoteCtrl', [])
   // Checks sockets on connection to update your view
   Main.socket.on('onConnection', function(data){
     console.log('data on connect: ', data);
-    // $scope.chartData = [
-    //   ['ideas1', data.one],
-    //   ['ideas2', data.two],
-    //   ['ideas3', data.three],
-    //   ['ideas3', data.four],
-    //   ['ideas3', data.five]
-    // ];
     $scope.chartData = [
       [data.one],
       [data.two],
@@ -46,6 +29,10 @@ angular.module('VoteCtrl', [])
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
+  
+  $scope.init = function(){
+    Vote.getVoters();
+  }();
   
   // Listens for allVotesIn
   Main.socket.on('allVotesIn', function(data){
