@@ -1,7 +1,17 @@
 
 angular.module('VoteCtrl', [])
 
-.controller('VotingController', function($scope, Vote, Main, $interval, $location) {
+.controller('VotingController', function($scope, Vote, Main, $interval, $location, limitToFilter) {
+  
+  $scope.ideas = [
+    ['ideas1', 0],
+    ['ideas2', 0],
+    ['ideas3', 0],
+    ['ideas3', 0],
+    ['ideas3', 0]
+  ];
+  
+  $scope.limitedIdeas = limitToFilter($scope.ideas, 5);
   
   // TEST socket connection between server and chart -------------------
   
@@ -34,18 +44,27 @@ angular.module('VoteCtrl', [])
   
   // Listen to any server-side stateView changes via the socket, and update $scope.voteObj accorgingly
   Main.socket.on('stateViewChange', function(data) {
-    // console.log('data: ', data);
+    console.log('data: ', data);
+    
+    $scope.ideas = [
+    ['ideas1', data.one],
+    ['ideas2', data.two],
+    ['ideas3', data.three],
+    ['ideas3', data.four],
+    ['ideas3', data.five]
+  ];
+    
     // Creates an array of bar data for the chart
     // var bars = ;
     // $scope.chartOptions['series'][0]['data'] = [ data.one, data.two, data.three, data.four, data.five];
-    console.log('$scope.voteObj: ', $scope.voteObj);
+    // console.log('$scope.voteObj: ', $scope.voteObj);
     //$scope.chartOptions['series'][0].setData( { data: { one: data.one, two: data.two, three: data.three, four: data.four, five: data.five} });
     // Highcharts.['series'][0].setData([ data.one, data.two, data.three, data.four, data.five]);
-    console.log("$scope.chartOptions['series'][0]['data'][bars]: ", $scope.chartOptions['series'][0]['data']);
+    // console.log("$scope.chartOptions['series'][0]['data'][bars]: ", $scope.chartOptions['series'][0]['data']);
     // Update the voter object to reflect the new data
-    $scope.voteObj = data;
+    // $scope.voteObj = data;
     // Change the route as appropriate
-    var test = Main.getState();
+    // var test = Main.getState();
     // This line seems to be needed to make sure all clients update appropriately:
     $scope.$apply();
   });
@@ -54,7 +73,7 @@ angular.module('VoteCtrl', [])
   
   $scope.itemTitle = 'Test Item Title';
   $scope.one = 0;
-  $scope.two = 0;
+  $scope.two = 2;
   $scope.three = 0;
   $scope.four = 0;
   $scope.five = 0;
@@ -98,8 +117,8 @@ angular.module('VoteCtrl', [])
   };
 
   $scope.postVote2 = function() {
-    $scope.two += 1;
-    $scope.userVote = '2';
+    // $scope.two += 1;
+    // $scope.userVote = '2';
     Vote.addVote2()
       .catch(function (err) {
         console.log(err);

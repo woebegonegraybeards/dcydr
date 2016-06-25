@@ -29,6 +29,7 @@ angular.module('MainCtrl', [])
   
   // Listen to any server-side stateView changes via the socket, and update $scope.voteObj accorgingly
   Main.socket.on('stateViewChange', function(data) {
+    // console.log('Main socket from MainController: ', data);
     // Update the voter object to reflect the new data
     $scope.voteObj = data;
     // Change the route as appropriate
