@@ -18,6 +18,13 @@ angular.module('VoteService', [])
     //   3: '/view3'
     // },
     
+    getVoters: function(){
+      return $http({
+        method: 'GET',
+        url: '/api/vote/',
+      });  
+    },
+    
     //sends a vote for 1
     addVote1: function(vote) {
       return $http({

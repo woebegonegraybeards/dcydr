@@ -90,6 +90,7 @@ module.exports = {
     //set state to 2 using our method below to do so and emit stateViewChange to all clients
     this.changeStateView(2);
     server.io.emit('stateViewChange', this);
+    // server.io.emit('onConnection', this);
   },
 
   //reset the vote session
