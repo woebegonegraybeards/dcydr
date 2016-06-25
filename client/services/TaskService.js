@@ -5,11 +5,13 @@ angular.module('TaskService', [])
 
   return {
 
-    addVote1: function(vote) {
+    addTopic: function(data) {
+      console.log('addTopic from service data: ', data);
       return $http({
         method: 'POST',
-        url: '/api/vote/1',
-        data: vote
+        url: '/api/topic',
+        // data: JSON.stringify({topic: data})
+        data: {topic: data}
       });
     },
     
