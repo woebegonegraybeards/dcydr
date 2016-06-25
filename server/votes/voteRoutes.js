@@ -1,4 +1,5 @@
 var voteController = require('./voteController.js');
+var server = require('../server.js');
 
 //vote session obj and methods
 module.exports = function(app) {
@@ -7,6 +8,7 @@ module.exports = function(app) {
   app.route('/')
     //get voting session obj
     .get(function(req, res) {
+      server.io.emit('onConnection', voteController);
       res.send(voteController);
     })
 
