@@ -19,31 +19,48 @@ angular.module('ChartDirective', [])
       link: function (scope, element, attrs) {
         var chart = new Highcharts.Chart({
           chart: {
+            backgroundColor: '#eee',
+            //   linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+            //   stops: [
+            //     [0, '#2a2a2b'],
+            //     [1, '#3e3e40']
+            //   ]
+            // },
+            // style: {
+            //    fontFamily: "'Unica One', sans-serif"
+            // },
+            // plotBorderColor: '#606063',
             type: 'column',
             renderTo: 'container',
+            width: 500,
+            height: 350
             // plotBackgroundColor: null,
             // plotBorderWidth: null,
             // plotShadow: false
           },
+          legend: {
+            enabled: false
+          },
           title: {
-            text: 'Browser market shares at a specific website, 2010'
+            text: 'Voting Topic'
           },
-          tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-            percentageDecimals: 1
-          },
+          // tooltip: {
+          //   pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+          //   percentageDecimals: 1
+          // },
           xAxis: {
               categories: ['One', 'Two', 'Three', 'Four', 'Five']
           },
           yAxis: {
             max: 5,
             title: {
-                text: 'Task Difficulty'
+              // text: 'Task Difficulty'
+              text: null
             }
           },
           series: [{
             // type: 'pie',
-            name: 'Browser share',
+            name: 'Count',
             data: scope.items
           }]
         });

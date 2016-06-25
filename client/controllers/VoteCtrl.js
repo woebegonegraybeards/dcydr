@@ -3,39 +3,61 @@ angular.module('VoteCtrl', [])
 
 .controller('VotingController', function($scope, Vote, Main, $interval, $location) {
   
-  $scope.ideas = [
-    ['ideas1', 0],
-    ['ideas2', 0],
-    ['ideas3', 0],
-    ['ideas3', 0],
-    ['ideas3', 0]
+  // $scope.chartData = [
+  //   ['ideas1', 0],
+  //   ['ideas2', 0],
+  //   ['ideas3', 0],
+  //   ['ideas3', 0],
+  //   ['ideas3', 0]
+  // ];
+  
+  $scope.chartData = [
+    [0],
+    [0],
+    [0],
+    [0],
+    [0]
   ];
 
   // For setting which client started the vote
   $scope.voteStarter = false;
 
-  // Checks socks on initial
+  // Checks socks on
   Main.socket.on('onConnection', function(data){
     console.log('data on connect: ', data);
-    $scope.ideas = [
-      ['ideas1', data.one],
-      ['ideas2', data.two],
-      ['ideas3', data.three],
-      ['ideas3', data.four],
-      ['ideas3', data.five]
+    // $scope.chartData = [
+    //   ['ideas1', data.one],
+    //   ['ideas2', data.two],
+    //   ['ideas3', data.three],
+    //   ['ideas3', data.four],
+    //   ['ideas3', data.five]
+    // ];
+    $scope.chartData = [
+      [data.one],
+      [data.two],
+      [data.three],
+      [data.four],
+      [data.five]
     ];
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
   
-  // Listen to any server-side stateView changes via the socket, and update $scope.ideas accordingly
+  // Listen to any server-side stateView changes via the socket, and update $scope.chartData accordingly
   Main.socket.on('stateViewChange', function(data) {
-    $scope.ideas = [
-      ['ideas1', data.one],
-      ['ideas2', data.two],
-      ['ideas3', data.three],
-      ['ideas3', data.four],
-      ['ideas3', data.five]
+    // $scope.chartData = [
+    //   ['ideas1', data.one],
+    //   ['ideas2', data.two],
+    //   ['ideas3', data.three],
+    //   ['ideas3', data.four],
+    //   ['ideas3', data.five]
+    // ];
+    $scope.chartData = [
+      [data.one],
+      [data.two],
+      [data.three],
+      [data.four],
+      [data.five]
     ];
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
