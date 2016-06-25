@@ -1,6 +1,10 @@
 var Topic = require('./topicModel.js');
+var server = require('../server.js');
 
 module.exports = {
+  
+  topics: [],
+  
   findTopic: function(req, res, next) {
     var desc = req.body.topic;
     Topic.findOne({desc: desc}).then(function(topic) {
@@ -18,14 +22,22 @@ module.exports = {
 
   allTopics: function(req, res) {
     Topic.find({}).then(function(topics) {
-      res.json(topics);
+      // res.json(topics);
+      this.topics = topics;
+      // server.io.emit('onTopicConnection', this);
+      // res.send(this);
     }).catch(function(error) {
       console.error(error);
     });
   },
 
-  newTopic: function(req, res) {
-    var topic = req.body.topic;
+  newTopic: function(data) {
+    var topic = data;
+    
+    console.log('topic from topicController: ', topic);
+    
+    this.topics.push(topic);
+    server.io.emit('onTopicPost', this);
 
     Topic.findOne({desc: topic}).then(function(match) {
       if (match) {

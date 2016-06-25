@@ -131,6 +131,7 @@ textarea:focus, input:focus{
 .task-list {
   text-align: left;
   margin: 0 0 0 5px;
+  line-height: 21px;
 }
 
 .taskMenu {
