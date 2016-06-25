@@ -3,10 +3,10 @@ angular.module('SprintPal', [
   'appRoutes',
   'MainCtrl',
   'VoteCtrl',
-  'ChartCtrl',
+  'TaskCtrl',
   'ChartDirective',
   'MainService',
-  'ChartService',
   'VoteService',
+  'TaskService'
   // 'highcharts-ng'
 ]);

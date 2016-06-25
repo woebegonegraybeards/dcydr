@@ -106,10 +106,45 @@ textarea:focus, input:focus{
     color: #eee;
 }
 
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 .hc-chart {
   position: relative;
   margin: 0 auto;
   width: 500px;
+}
+
+.votebox {
+  margin: auto;
+}
+
+.task-form {
+  width: 200px;
+  font-size: 21px;
+  font-weight: 200;
+  margin: 0 0 0 5px;
+}
+
+.task-list {
+  text-align: left;
+  margin: 0 0 0 5px;
+}
+
+.taskMenu {
+  width: 225px;
+  float: left;
+}
+
+.chartBox {
+  width: 510px;
+}
+
+.completedTasks {
+  width: 185px;
+  float: right;
 }
 
 .vote {
