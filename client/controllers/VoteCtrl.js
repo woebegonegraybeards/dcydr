@@ -11,6 +11,8 @@ angular.module('VoteCtrl', [])
   //   ['ideas3', 0]
   // ];
   
+  // $scope.voterCount = 3;
+  
   $scope.chartData = [
     [0],
     [0],
@@ -22,7 +24,7 @@ angular.module('VoteCtrl', [])
   // For setting which client started the vote
   $scope.voteStarter = false;
 
-  // Checks socks on
+  // Checks sockets on connection to update your view
   Main.socket.on('onConnection', function(data){
     console.log('data on connect: ', data);
     // $scope.chartData = [
@@ -39,12 +41,34 @@ angular.module('VoteCtrl', [])
       [data.four],
       [data.five]
     ];
+    
+    $scope.voterCount = data.totalVotes;
+    // This line seems to be needed to make sure all clients update appropriately
+    $scope.$apply();
+  });
+  
+  // Listens for allVotesIn
+  Main.socket.on('allVotesIn', function(data){
+    console.log('data on connect: ', data);
+    // Disable buttons
+    // Display vote count / winner
+    // This line seems to be needed to make sure all clients update appropriately
+    $scope.$apply();
+  });
+  
+  // Listens for voteCount to set xAis
+  Main.socket.on('voterCount', function(data){
+    console.log('socket on voteCount: ', data);
+    
+    // Disable buttons
+    // Display vote count / winner
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
   
   // Listen to any server-side stateView changes via the socket, and update $scope.chartData accordingly
   Main.socket.on('stateViewChange', function(data) {
+    // console.log('data on change: ', data.totalVotes);
     // $scope.chartData = [
     //   ['ideas1', data.one],
     //   ['ideas2', data.two],
@@ -59,6 +83,7 @@ angular.module('VoteCtrl', [])
       [data.four],
       [data.five]
     ];
+    $scope.voterCount = data.totalVotes;
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });

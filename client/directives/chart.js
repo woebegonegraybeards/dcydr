@@ -8,7 +8,8 @@ angular.module('ChartDirective', [])
       // templateUrl: '../views/chart.html',
       replace: true,
       scope: {
-        items: '='
+        items: '=',
+        votercount: '='
       },
       controller: function ($scope, $element, $attrs) {
 
@@ -52,7 +53,8 @@ angular.module('ChartDirective', [])
               categories: ['One', 'Two', 'Three', 'Four', 'Five']
           },
           yAxis: {
-            max: 5,
+            max: scope.voterCount,
+            min: 0,
             title: {
               // text: 'Task Difficulty'
               text: null
@@ -64,8 +66,12 @@ angular.module('ChartDirective', [])
             data: scope.items
           }]
         });
-        scope.$watch("items", function (newValue, oldValue) {
+        scope.$watch("items", function (newValue) {
           chart.series[0].setData(newValue, true);
+        }, true);
+        
+        scope.$watch("votercount", function (newValue) {
+          chart.yAxis[0].setExtremes(0, newValue);
         }, true);
       }
     };
