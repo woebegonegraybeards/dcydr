@@ -1,23 +1,14 @@
 <div class="jumbotron text-center">
 
-  <!-- <div ng-controller='ChartController'>
-    <chart votes='vote'></chart>
-  </div> -->
-  
   <div ng-controller='VotingController'>
-    One = {{ one }}<br>
-    Two = {{ two }}<br>
-    <!-- <hc-chart options="chartOptions"
-              attribute-foo="{{foo}}" 
-              binding-foo="foo">Placeholder for generic chart</hc-chart> -->
-    <div class="hc-chart" items="limitedIdeas"></div>
+    <!-- <div class="hc-chart" data="chartData" title="chartTitle"></div> -->
+    <div class="hc-chart" items="ideas"></div>
     <button class="vote" ng-click="postVote1()">1</button>
     <button class="vote" ng-click="postVote2()">2</button>
     <button class="vote" ng-click="postVote3()">3</button>
     <button class="vote" ng-click="postVote4()">4</button>
     <button class="vote" ng-click="postVote5()">5</button>
   </div>
-
 
   <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
 </div>
