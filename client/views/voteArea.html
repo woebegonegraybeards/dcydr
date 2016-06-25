@@ -1,14 +1,27 @@
 <div class="jumbotron text-center">
+  <div class='votebox'>
+  
+    <div ng-controller='TaskController' class='taskMenu'>
+      <form class="task-form">
+        <input type="text" ng-model="task.item" class='task-form' /><br />
+      </form>
+      <p class='task-list'>{{ taskList }}</p>
+    </div>
 
-  <div ng-controller='VotingController'>
-    <!-- <div class="hc-chart" data="chartData" title="chartTitle"></div> -->
-    <div class="hc-chart" items="chartData" votercount="voterCount"></div>
-    <button class="vote" ng-click="postVote1()">1</button>
-    <button class="vote" ng-click="postVote2()">2</button>
-    <button class="vote" ng-click="postVote3()">3</button>
-    <button class="vote" ng-click="postVote4()">4</button>
-    <button class="vote" ng-click="postVote5()">5</button>
+    <div ng-controller='VotingController' class='chartDiv'>
+      <!-- <div class="hc-chart" data="chartData" title="chartTitle"></div> -->
+      <div class="hc-chart" items="chartData" votercount="voterCount"></div>
+      <button class="vote" ng-click="postVote1()">1</button>
+      <button class="vote" ng-click="postVote2()">2</button>
+      <button class="vote" ng-click="postVote3()">3</button>
+      <button class="vote" ng-click="postVote4()">4</button>
+      <button class="vote" ng-click="postVote5()">5</button>
+      <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
+    </div>
+    
+    <div ng-controller='TaskController' class='completedTasks'>
+      <p>{{ completedTasks }}</p>
+    </div>
+  
   </div>
-
-  <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
 </div>
