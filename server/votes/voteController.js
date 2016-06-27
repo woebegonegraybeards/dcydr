@@ -102,11 +102,13 @@ module.exports = {
       this.three = 0;
       this.four = 0;
       this.five = 0;
-      
+
       // Removes and stores the first item in topics array
       var task = this.topics.shift();
+      // Combines task with the result
+      var completedTask = task + ': ' + this.result;
       // Adds done item to completedTopics
-      this.completedTopics.push(task);
+      this.completedTopics.push(completedTask);
     
       // Emits onTopicCompelete to TaskCtrl.js and VoteCtrl.js
       server.io.emit('onTopicComplete', this);
