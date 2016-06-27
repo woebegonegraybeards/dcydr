@@ -10,13 +10,30 @@ angular.module('VoteCtrl', [])
     [0],
     [0]
   ];
-
-  // For setting which client started the vote
-  $scope.voteStarter = false;
+  
+  $scope.topicItem = '';    // Chart topic item title
+  $scope.currentItem = 0;   // Current item selected
+  $scope.voteStarter = false; // For setting which client started the vote
+  
+  // onTopicChange
+  Main.socket.on('onTopicChange', function(data){
+    // console.log('on TOPICCHANGE: ', data.topics);
+    $scope.topicItem = data.topics[data.currentTopic];
+    // This line seems to be needed to make sure all clients update appropriately
+    $scope.$apply();
+  });
 
   // Checks sockets on connection to update your view
+  Main.socket.on('onTopicConnection', function(data){
+    // Updates chart title
+    $scope.topicItem = data.topics[data.currentTopic];
+    // This line seems to be needed to make sure all clients update appropriately
+    $scope.$apply();
+  });
+  
+  // Checks sockets on connection to update your view
   Main.socket.on('onConnection', function(data){
-    console.log('data on connect: ', data);
+    // console.log('data on connect: ', data);
     $scope.chartData = [
       [data.one],
       [data.two],
@@ -24,7 +41,6 @@ angular.module('VoteCtrl', [])
       [data.four],
       [data.five]
     ];
-    
     $scope.voterCount = data.totalVotes;
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
@@ -34,21 +50,27 @@ angular.module('VoteCtrl', [])
     Vote.getVoters();
   }();
   
-  // Listens for allVotesIn
-  Main.socket.on('allVotesIn', function(data){
-    console.log('data on connect: ', data);
-    // Disable buttons
-    // Display vote count / winner
+  // When the current topic is complete
+  Main.socket.on('onTopicComplete', function(data){
+    // Updates chart title
+    $scope.topicItem = data.topics[data.currentTopic];
+
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
   
-  // Listens for voteCount to set xAis
-  Main.socket.on('voterCount', function(data){
-    console.log('socket on voteCount: ', data);
-    
-    // Disable buttons
-    // Display vote count / winner
+  // Listens for allVotesIn, from
+  Main.socket.on('allVotesIn', function(data){
+    console.log('allVotesIn from VoteCtrl: ', data);
+    var result = data.result;
+
+    // I don't know how this is being invoked......
+    // Updates to the next topic
+    // Vote.nextTopic(result)
+    //   .catch(function (err) {
+    //     console.log(err);
+    //   });
+
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
@@ -56,13 +78,6 @@ angular.module('VoteCtrl', [])
   // Listen to any server-side stateView changes via the socket, and update $scope.chartData accordingly
   Main.socket.on('stateViewChange', function(data) {
     // console.log('data on change: ', data.totalVotes);
-    // $scope.chartData = [
-    //   ['ideas1', data.one],
-    //   ['ideas2', data.two],
-    //   ['ideas3', data.three],
-    //   ['ideas3', data.four],
-    //   ['ideas3', data.five]
-    // ];
     $scope.chartData = [
       [data.one],
       [data.two],

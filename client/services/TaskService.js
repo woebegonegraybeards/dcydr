@@ -12,22 +12,23 @@ angular.module('TaskService', [])
       return $http.get('/api/topic');
     },
 
+    // Full call with database. NOT CALLED
     addTopic: function(data) {
-      console.log('addTopic from service data: ', data);
       return $http({
         method: 'POST',
         url: '/api/topic',
-        // data: JSON.stringify({topic: data})
         data: {topic: data}
       });
     },
     
+    addSingleTopic: function(data) {
+      return $http({
+        method: 'POST',
+        url: '/api/topic',    // Goes to topicRoutes.js
+        data: JSON.stringify({topic:data})
+      });
+    }
+    
   };
          
 }])
-
-// .run(function(Task) {
-//   Task.getState().then(function (state) {
-//     Task.updateView(state.data.stateView);
-//   });
-// });

@@ -3,37 +3,51 @@ angular.module('TaskCtrl', [])
 
 .controller('TaskController', function($scope, Vote, Main, Task, $interval, $location) {
   
-  // $scope.taskList = 'Task Item';
-  
-  $scope.completedTasks = 'List here';
-  
-  $scope.addTopic = function() {
-    // var data = JSON.stringify($scope.topic);
-    Task.addTopic($scope.topic)
+  $scope.taskList = [];         // Current task list
+  $scope.completedTasks = [];   // Completed tasks
+
+  $scope.addSingleTopic = function( ) {     // Sends single topic to backend
+    Task.addSingleTopic($scope.topic)       // Sends POST to /api/topic with topic
       .catch(function (err) {
         console.log(err);
       });
+    $scope.topic = '';    // Resets input field
   };
   
-  // $scope.update = function(){
-  //   Task.getState();
-  // }();
-  
-  // Checks sockets on connection to update your view
-  Main.socket.on('onTopicsConnection', function(data){
-    console.log('data on onTopicConnection:', data);
+  // onTopicChange
+  Main.socket.on('onTopicChange', function(data){
+    // Updates taskList with topics
     $scope.taskList = data.topics;
-    // This line seems to be needed to make sure all clients update appropriately
-    $scope.$apply();
+    // Updates completed tasks
+    $scope.completedTasks = data.completedTopics;
+    $scope.$apply();  // This line seems to be needed to make sure all clients update appropriately
   });
   
   // Checks sockets on connection to update your view
-  Main.socket.on('onTopicPost', function(data){
-    console.log('data on onTopicPost: ', data);
+  Main.socket.on('onTopicConnection', function(data){
+    // Updates taskList with topics
     $scope.taskList = data.topics;
-    // This line seems to be needed to make sure all clients update appropriately
-    $scope.$apply();
+    // Updates completed tasks
+    $scope.completedTasks = data.completedTopics;
+    $scope.$apply();  // This line seems to be needed to make sure all clients update appropriately
   });
   
+  // When the current topic is complete
+  Main.socket.on('onTopicComplete', function(data){
+    // Updates taskList with topics
+    $scope.taskList = data.topics;
+    // Updates completed tasks
+    $scope.completedTasks = data.completedTopics;
+    $scope.$apply();    // This line seems to be needed to make sure all clients update appropriately
+  });
   
+  // Init - make API call to update everything on connection
+  $scope.init = function(){
+    // Sends GET request to /api/topics, which then emits to onTopicConnection above to update DOM
+    Task.getState()
+    .catch(function (err) {
+        console.log(err);
+    });
+  }();
+
 });
