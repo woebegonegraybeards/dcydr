@@ -12,24 +12,19 @@ angular.module('TaskService', [])
       return $http.get('/api/topic');
     },
 
-    // Full call with database
+    // Full call with database. NOT CALLED
     addTopic: function(data) {
-      // console.log('addTopic from service data: ', data);
       return $http({
         method: 'POST',
         url: '/api/topic',
-        // data: JSON.stringify({topic: data})
         data: {topic: data}
       });
     },
     
-    // MVP call
     addSingleTopic: function(data) {
-      // console.log('addSingleTopic from service data: ', data);
       return $http({
         method: 'POST',
-        url: '/api/topic',
-        // data: JSON.stringify({topic: data})
+        url: '/api/topic',    // Goes to topicRoutes.js
         data: JSON.stringify({topic:data})
       });
     }
@@ -37,9 +32,3 @@ angular.module('TaskService', [])
   };
          
 }])
-
-// .run(function(Task) {
-//   Task.getState().then(function (state) {
-//     Task.updateView(state.data.stateView);
-//   });
-// });

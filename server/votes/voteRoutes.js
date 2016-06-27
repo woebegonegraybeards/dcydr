@@ -13,7 +13,7 @@ module.exports = function(app) {
       // topicController.allTopics();
       // console.log('topicController: ', topicController);
       
-      // CLEAN BELOW
+      // Emits onConnection to VoteCtrl.js
       server.io.emit('onConnection', voteController);
       res.send(voteController);
     })

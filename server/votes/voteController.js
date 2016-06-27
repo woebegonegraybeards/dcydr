@@ -78,6 +78,8 @@ module.exports = {
       console.log('sum: ', voteSum);
       console.log('result: ', (voteSum/voteCount).toFixed(2));
       this.allVotesIn = true;
+      
+      // We need to send result to the topic controller on completion to add it the the completed array
       this.result = (voteSum/voteCount).toFixed(2);
       // this.changeStateView(3);
       

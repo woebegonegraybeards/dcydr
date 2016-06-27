@@ -25,6 +25,9 @@ angular.module('VoteService', [])
       });  
     },
     
+    // I attempted to call this fn during allVotesIn socket emit from VoteCtrl.js but it seems to be calling
+    // itself somehow. The result is passed in from VoteCtrl.js allVotesIn emit and is the average vote for
+    // the completed task.
     nextTopic: function(result){
       console.log('nextTopic Service ran: ');
       return $http({
