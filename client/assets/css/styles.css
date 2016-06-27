@@ -367,6 +367,10 @@ input[type=text] {
   background: #eee;
   border-radius: 10px;
   padding: 20px;
+  float: left;
+  width: 49.03846%;
+  margin-right: 1.92308%;
+  margin-left: 25.48077%;
 }
 .voters {
   text-align: center;
