@@ -14,12 +14,16 @@ module.exports = {
   },
   
   // Remove single topic
-  taskComplete: function(req, res){
-    // console.log('topicController taskComplete ran: ');
+  taskComplete: function(result){
+    // console.log('topicController taskComplete ran result: ', result);
     // console.log('topicController completedTopics before: ', this.completedTopics);
     
-    var done = this.topics.shift();         // Removes and stores the first item in topics array
-    this.completedTopics.push(done);        // Adds done item to completedTopics
+    // var resultAmount = result;                  // Stores the result amount
+    // var complete = done + ' ' + resultAmount;   // Combines the task with the result amount
+    // this.completedTopics.push(complete);        // Adds done item to completedTopics
+    
+    var task = this.topics.shift();         // Removes and stores the first item in topics array
+    this.completedTopics.push(task);        // Adds done item to completedTopics
     
     // console.log('topicController completedTopics after: ', this.completedTopics);
 

@@ -81,7 +81,6 @@ module.exports = {
       this.result = (voteSum/voteCount).toFixed(2);
       // this.changeStateView(3);
       
-      
       // Resets all of the votes back to zero
       this.one = 0;
       this.two = 0;
@@ -91,10 +90,6 @@ module.exports = {
       
       // Sends allVotesIn emit to VoteCtrl.js
       server.io.emit('allVotesIn', this);
-      
-      
-      // server.io.emit('stateViewChange', this);
-      // server.io.emit('onTopicChange', this);
     }
 
   },
@@ -105,7 +100,6 @@ module.exports = {
     //set state to 2 using our method below to do so and emit stateViewChange to all clients
     this.changeStateView(2);
     server.io.emit('stateViewChange', this);
-    // server.io.emit('onConnection', this);
   },
 
   //reset the vote session

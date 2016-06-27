@@ -32,14 +32,19 @@ module.exports = function(app) {
     // MVP
   app.route('/next')
     .post(function(req, res) {
-      console.log('api/topic/next POST ran -------------------: ');
+      // console.log('api/topic/next POST ran -------------------: req.data.result', req.body.result);
+      
+      var result = req.body.result; // Stores the final result from the vote
 
       // Moves current task into completed array, updates next topic
-      topicController.taskComplete();
+      // topicController.taskComplete(result);    // Invokes taskComplete with the result
+      
+      topicController.taskComplete(); // Invokes taskComplete without the result
       
       // Send back our whole data object
       res.send(topicController);
     });
+    
     
     // FUll app with database attempt
     // .post(function(req, res) {

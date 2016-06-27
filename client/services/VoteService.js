@@ -25,11 +25,12 @@ angular.module('VoteService', [])
       });  
     },
     
-    nextTopic: function(){
-      // console.log('nextTopic Service ran: ');
+    nextTopic: function(result){
+      console.log('nextTopic Service ran: ');
       return $http({
         method: 'POST',
         url: '/api/topic/next',
+        data: {result: result}
       });  
     },
     
