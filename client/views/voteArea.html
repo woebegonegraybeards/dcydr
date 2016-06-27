@@ -1,5 +1,6 @@
 <div class="jumbotron text-center">
   <div class='votebox'>
+  <div class="container">
   
     <div ng-controller='TaskController' class='taskMenu'>
       <!-- <form ng-submit='addTopic()' class="task-form"> -->
@@ -25,6 +26,6 @@
       <!-- <p>{{ completedTasks }}</p> -->
       <p class='completedTask-list' ng-repeat='task in completedTasks track by $index'>{{ task }}</p>
     </div>
-  
+  </div>
   </div>
 </div>
