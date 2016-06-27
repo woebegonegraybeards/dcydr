@@ -80,6 +80,21 @@ module.exports = {
       this.allVotesIn = true;
       this.result = (voteSum/voteCount).toFixed(2);
       // this.changeStateView(3);
+      
+      
+      // Resets all of the votes back to zero
+      this.one = 0;
+      this.two = 0;
+      this.three = 0;
+      this.four = 0;
+      this.five = 0;
+      
+      // Sends allVotesIn emit to VoteCtrl.js
+      server.io.emit('allVotesIn', this);
+      
+      
+      // server.io.emit('stateViewChange', this);
+      // server.io.emit('onTopicChange', this);
     }
 
   },

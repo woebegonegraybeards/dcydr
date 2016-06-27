@@ -25,6 +25,14 @@ angular.module('VoteService', [])
       });  
     },
     
+    nextTopic: function(){
+      // console.log('nextTopic Service ran: ');
+      return $http({
+        method: 'POST',
+        url: '/api/topic/next',
+      });  
+    },
+    
     //sends a vote for 1
     addVote1: function(vote) {
       return $http({

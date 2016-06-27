@@ -4,6 +4,29 @@ var server = require('../server.js');
 module.exports = {
   
   topics: [],
+  completedTopics: [],
+  currentTopic: 0,
+  
+  singleTopic: function(data){
+    // console.log('topicController singleTopic req: ', data);
+    this.topics.push(data);
+    server.io.emit('onTopicChange', this);
+  },
+  
+  // Remove single topic
+  taskComplete: function(req, res){
+    // console.log('topicController taskComplete ran: ');
+    // console.log('topicController completedTopics before: ', this.completedTopics);
+    
+    var done = this.topics.shift();         // Removes and stores the first item in topics array
+    this.completedTopics.push(done);        // Adds done item to completedTopics
+    
+    // console.log('topicController completedTopics after: ', this.completedTopics);
+
+    // Sends onTopicCompelete to 
+    server.io.emit('onTopicComplete', this);
+  },
+  
   
   findTopic: function(req, res, next) {
     var desc = req.body.topic;
