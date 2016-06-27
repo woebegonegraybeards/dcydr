@@ -106,7 +106,7 @@ module.exports = {
       // Removes and stores the first item in topics array
       var task = this.topics.shift();
       // Combines task with the result
-      var completedTask = task + ': ' + this.result;
+      var completedTask = {'task': task, 'result': this.result};
       // Adds done item to completedTopics
       this.completedTopics.push(completedTask);
     
