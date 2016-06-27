@@ -8,19 +8,15 @@
   position: absolute;
 }*/
 
-.navbar {
-  border-radius: 5px;
-  margin-bottom: 5px;
-  height: 25px;
+.main-container {
+  padding-left: 2px;
 }
 
-.navbar-header a {
-  text-align: center;
-  font-size: 36px;
-  letter-spacing: 15px;
-  font-weight: bold;
-  color: #669999;
-  margin-top: -13px;
+.navbar {
+  background-color: #333333;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  height: 55px;
 }
 
 
@@ -123,6 +119,8 @@ textarea:focus, input:focus{
 }
 
 .votebox {
+  padding-right: -60px;
+  padding-left: -60px;
   margin: auto;
 }
 
@@ -153,12 +151,45 @@ textarea:focus, input:focus{
   float: right;
 }
 
+/*.header-title a {
+  text-align: center !important;
+  color: rgb(124, 181, 236);
+  font-size: 36px !important;
+  letter-spacing: 15px;
+  font-weight: bold;
+  color: #669999;
+  margin-top: -13px;
+}*/
+
+.navbar-header {
+  /*margin: 0;*/
+  text-align: center;
+  float: none;
+}
+
+.header-title {
+  text-align: center;
+  color: rgb(124, 181, 236);
+  font-size: 40px;
+  letter-spacing: 15px;
+  font-weight: bold;
+}
+
+.header-title:hover {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(124, 181, 236);
+  font-size: 40px;
+  letter-spacing: 15px;
+  font-weight: bold;
+}
+
 .vote {
 /*  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;*/
   /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
   text-align: center;
-  color: #663399;
+  color: rgb(124, 181, 236);
   background-color: #eee;
   font-size: 33px;
   line-height: 33px;
@@ -168,9 +199,42 @@ textarea:focus, input:focus{
   /*border-radius: 2px;*/
   display: inline-block;
   margin: auto;
-  border: 1px solid #663399;
+  /*border: 0px solid #663399;*/
+  border: 0px;
+  border-radius: 2px;
   padding: 0 0 0px 0;
   margin: 0px 5px 0 0;
+}
+
+.vote:hover {
+  color: #fff;
+  background-color: rgb(124, 181, 236);
+  border-radius: 2px;
+}
+
+.voting-buttons {
+  display: block;
+  float: left;
+}
+
+.one {
+  margin-left: 48px;
+}
+
+.two {
+  margin-left: 15px;
+}
+
+.three {
+  margin-left: 13px;
+}
+
+.four {
+  margin-left: 13px;
+}
+
+.five {
+  margin-left: 13px;
 }
 
 .plusMinus:active {
@@ -270,6 +334,36 @@ textarea:focus, input:focus{
   padding-top: 15px;
 }
 
+.task-form {
+  font-size: 15px;
+  margin: 0px 0 0 0;
+}
+
+.task-header {
+  text-align: left;
+}
+
+.task-list {
+  font-size: 15px;
+  line-height: 9px;
+  margin: 13px 0 0 6px;
+}
+
+.taskMenu p {
+  font-size: 15px;
+  line-height: 9px;
+  margin: 13px 0 0 6px;
+}
+
+.completedTasks p {
+  font-size: 15px;
+  line-height: 9px;
+  margin: 13px 0 0 6px;
+}
+
+.result-num {
+  float: right;
+}
 
 .taskMenu {
   grid-column: 3/12;
@@ -280,5 +374,7 @@ textarea:focus, input:focus{
 }
 
 .completedTasks {
+  font-size: 11px !important;
+  text-align: left;
   grid-column: 3/12 !last;
 }
