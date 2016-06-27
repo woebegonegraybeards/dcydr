@@ -34,7 +34,7 @@ angular.module('ChartDirective', [])
             // plotBorderColor: '#606063',
             type: 'column',
             renderTo: 'container',
-            width: 500,
+            // width: 500,
             height: 350
             // plotBackgroundColor: null,
             // plotBorderWidth: null,

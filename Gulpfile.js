@@ -41,14 +41,14 @@ function handleError(error) {
 }
 
 gulp.task('css', function () {
-  return gulp.src('./client/assets/css/src/style.css')
+  return gulp.src('./client/assets/css/src/styles.css')
   .pipe(postcss(processors))
   .on('error', handleError)
   .pipe(gulp.dest('./client/assets/css'));
 });
 
 gulp.task('clean-css', function() {
-  return gulp.src('./client/assets/css/style.css', {read: false})
+  return gulp.src('./client/assets/css/styles.css', {read: false})
     .pipe(clean());
 });
 
