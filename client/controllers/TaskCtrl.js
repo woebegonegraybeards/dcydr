@@ -24,12 +24,13 @@ angular.module('TaskCtrl', [])
   });
   
   // Checks sockets on connection to update your view
-  Main.socket.on('onTopicConnection', function(data){
+  Main.socket.on('onConnection', function(data){
     // Updates taskList with topics
     $scope.taskList = data.topics;
     // Updates completed tasks
     $scope.completedTasks = data.completedTopics;
-    $scope.$apply();  // This line seems to be needed to make sure all clients update appropriately
+    // This line seems to be needed to make sure all clients update appropriately
+    $scope.$apply();
   });
   
   // When the current topic is complete

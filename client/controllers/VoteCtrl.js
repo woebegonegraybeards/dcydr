@@ -24,16 +24,17 @@ angular.module('VoteCtrl', [])
   });
 
   // Checks sockets on connection to update your view
-  Main.socket.on('onTopicConnection', function(data){
-    // Updates chart title
-    $scope.topicItem = data.topics[data.currentTopic];
-    // This line seems to be needed to make sure all clients update appropriately
-    $scope.$apply();
-  });
+  // Main.socket.on('onTopicConnection', function(data){
+  //   // console.log('onTopicConnection: ', data);
+  //   // Updates chart title
+  //   $scope.topicItem = data.topics[data.currentTopic];
+  //   // This line seems to be needed to make sure all clients update appropriately
+  //   $scope.$apply();
+  // });
   
   // Checks sockets on connection to update your view
   Main.socket.on('onConnection', function(data){
-    // console.log('data on connect: ', data);
+    console.log('data on connect: ', data);
     $scope.chartData = [
       [data.one],
       [data.two],
@@ -41,7 +42,12 @@ angular.module('VoteCtrl', [])
       [data.four],
       [data.five]
     ];
+    
+    
+    // Sets number of votes
     $scope.voterCount = data.totalVotes;
+    // Updates current chart topic
+    $scope.topicItem = data.topics[0];
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });

@@ -51,9 +51,10 @@ angular.module('ChartDirective', [])
           //   percentageDecimals: 1
           // },
           xAxis: {
-              categories: ['One', 'Two', 'Three', 'Four', 'Five']
+            categories: ['One', 'Two', 'Three', 'Four', 'Five']
           },
           yAxis: {
+            tickInterval: 1,
             max: scope.voterCount,
             min: 0,
             title: {
