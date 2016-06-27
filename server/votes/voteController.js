@@ -10,10 +10,22 @@ module.exports = {
   three: 0,
   four: 0,
   five: 0,
+  
+  topics: [],
+  completedTopics: [],
+  currentTopic: 0,
 
   totalVotes: 3, // Default initial number of voters
   allVotesIn: false, // Flag for all votes received
   result: null, // Result of voting
+  
+  singleTopic: function(data){
+    // console.log('topicController singleTopic req: ', data);
+    // Pushes new topic into topics array
+    this.topics.push(data);
+    // Emits onTopicChange to TaskCtrl.js and VoteCtrl.js
+    server.io.emit('onTopicChange', this);
+  },
 
   voteOne: function () {
     this.one++;
@@ -82,6 +94,7 @@ module.exports = {
       // We need to send result to the topic controller on completion to add it the the completed array
       this.result = (voteSum/voteCount).toFixed(2);
       // this.changeStateView(3);
+      this.voteCount
       
       // Resets all of the votes back to zero
       this.one = 0;
@@ -89,6 +102,14 @@ module.exports = {
       this.three = 0;
       this.four = 0;
       this.five = 0;
+      
+      // Removes and stores the first item in topics array
+      var task = this.topics.shift();
+      // Adds done item to completedTopics
+      this.completedTopics.push(task);
+    
+      // Emits onTopicCompelete to TaskCtrl.js and VoteCtrl.js
+      server.io.emit('onTopicComplete', this);
       
       // Sends allVotesIn emit to VoteCtrl.js
       server.io.emit('allVotesIn', this);

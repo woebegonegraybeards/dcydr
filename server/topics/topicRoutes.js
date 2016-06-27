@@ -1,4 +1,5 @@
 var topicController = require('./topicController.js');
+var voteController = require('../votes/voteController.js');
 var server = require('../server.js');
 
 module.exports = function(app) {
@@ -19,7 +20,8 @@ module.exports = function(app) {
       
       // The below doesn't invoke the database:
       // Invoke singleTopic and pass topic.
-      topicController.singleTopic(topic);
+      //topicController.singleTopic(topic);
+      voteController.singleTopic(topic);
       
       // The below involves the database:
       // Send the number of total votes to our method in voteCtrl to handle all that needs to happen
@@ -29,23 +31,23 @@ module.exports = function(app) {
       res.send(topicController);
     });
     
-  app.route('/next')
-    .post(function(req, res) {
-      // console.log('api/topic/next POST ran -------------------: req.data.result', req.body.result);
+  // app.route('/next')
+  //   .post(function(req, res) {
+  //     // console.log('api/topic/next POST ran -------------------: req.data.result', req.body.result);
       
-      var result = req.body.result; // Stores the final result from the vote
+  //     var result = req.body.result; // Stores the final result from the vote
 
-      // Moves current task into completed array, updates next topic
+  //     // Moves current task into completed array, updates next topic
       
-      // Invokes taskComplete with the result
-      // topicController.taskComplete(result);
+  //     // Invokes taskComplete with the result
+  //     // topicController.taskComplete(result);
       
-      // Invokes taskComplete without the result
-      topicController.taskComplete();
+  //     // Invokes taskComplete without the result
+  //     topicController.taskComplete();
       
-      // Send back our whole data object
-      res.send(topicController);
-    });
+  //     // Send back our whole data object
+  //     res.send(topicController);
+  //   });
     
     
     // FUll app with database attempt
