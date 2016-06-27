@@ -1,5 +1,9 @@
 <div class="jumbotron text-center">
 
+  <!-- <form class="task-form">
+    <input type="text" ng-model="topic" class='task-form' /><br />
+  </form> -->
+
   <div id="counter">
     <button class="plusMinus" ng-click="incNumOfVoters()">+</button>
     <div class="voters">{{ voteObj.totalVotes }}</div>
@@ -9,6 +13,6 @@
 
   <div class="space2"></div>
 
-  <button class="go" ng-click="go()">Start!</button>
+  <button class="go" ng-click="go(topic)">Start!</button>
   
 </div>

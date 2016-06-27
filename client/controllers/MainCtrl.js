@@ -1,7 +1,7 @@
 
 angular.module('MainCtrl', [])
 
-.controller('MainController', function($scope, Main, $interval, $location) {
+.controller('MainController', function($scope, Main, Task, $interval, $location) {
 
   // Stringified defaults obj to copy with JSON parse whenever we need to reset the voter object to defaults
   $scope.voteObjDefaults = JSON.stringify({ 
@@ -15,6 +15,8 @@ angular.module('MainCtrl', [])
     allVotesIn: false,
     result: null
   });
+  
+  $scope.topic = '';
 
   // The voter object $scope.voteObj tracks all the data we need to know, mimics the object the server stores
   // Voter object set initially to defaults (copying the defaults object so the two are not connected):
@@ -61,7 +63,16 @@ angular.module('MainCtrl', [])
   // Initiated when user hits 'Start!'. Takes in number of votes from view 1rser  
   // Sends POST request to update the server
   // (causes all users views will switch to view 2, handled via sockets)
-  $scope.go = function() {
+  $scope.go = function(topic) {
+    
+    // VV Full attempt
+    
+    // console.log('go topic: ', topic);
+    // Task.addSingleTopic(topic)
+    //   .catch(function (err) {
+    //     console.log(err);
+    // });
+    
     Main.startVoting({'votes': $scope.voteObj.totalVotes})  // We want to send all of the votes, not just the total
       .catch(function (err) {
         console.log(err);

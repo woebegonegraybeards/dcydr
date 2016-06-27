@@ -12,8 +12,9 @@ angular.module('TaskService', [])
       return $http.get('/api/topic');
     },
 
+    // Full call with database
     addTopic: function(data) {
-      console.log('addTopic from service data: ', data);
+      // console.log('addTopic from service data: ', data);
       return $http({
         method: 'POST',
         url: '/api/topic',
@@ -21,6 +22,17 @@ angular.module('TaskService', [])
         data: {topic: data}
       });
     },
+    
+    // MVP call
+    addSingleTopic: function(data) {
+      // console.log('addSingleTopic from service data: ', data);
+      return $http({
+        method: 'POST',
+        url: '/api/topic',
+        // data: JSON.stringify({topic: data})
+        data: JSON.stringify({topic:data})
+      });
+    }
     
   };
          

@@ -9,7 +9,8 @@ angular.module('ChartDirective', [])
       replace: true,
       scope: {
         items: '=',
-        votercount: '='
+        votercount: '=',
+        topic: '='
       },
       controller: function ($scope, $element, $attrs) {
 
@@ -43,7 +44,7 @@ angular.module('ChartDirective', [])
             enabled: false
           },
           title: {
-            text: 'Voting Topic'
+            text: 'scope.title'
           },
           // tooltip: {
           //   pointFormat: '{series.name}: <b>{point.percentage}%</b>',
@@ -72,6 +73,9 @@ angular.module('ChartDirective', [])
         
         scope.$watch("votercount", function (newValue) {
           chart.yAxis[0].setExtremes(0, newValue);
+        }, true);
+        scope.$watch("topic", function (newValue) {
+          chart.setTitle({text: newValue});
         }, true);
       }
     };
