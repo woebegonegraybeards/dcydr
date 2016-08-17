@@ -1,14 +1,4 @@
 module.exports = {
-  simpleMediaQueries: {
-    'initialize': '1px',
-    'xxsmall': '20em',
-    'xsmall': '30em',
-    'small': '35.5em', // >= 568px @ 16px 
-    'medium': '48em', // >= 768px @ 16px 
-    'large': '64em', // >= 1024px @ 16px 
-    'xlarge': '80em' // >= 1280px @ 16px
-  },
-  
   map: {
     maps: [{
       headerSizes: {
@@ -30,11 +20,5 @@ module.exports = {
         }
       }
     }]
-  },
-
-  grid: {
-    columns: 12,
-    maxWidth: 1040,
-    gutter: 20
   }
 }

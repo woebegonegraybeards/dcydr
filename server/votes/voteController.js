@@ -138,6 +138,10 @@ module.exports = {
     this.four = 0;
     this.five = 0;
 
+    this.topics = [];
+    this.completedTopics = [];
+    this.currentTopic = 0;
+
     //total votes expected
     this.totalVotes = 3;
 

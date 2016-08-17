@@ -1,46 +1,58 @@
+@import '_reset';
 @import '_variables';
 @import '_typography';
 
-@reset-global mobile;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/*body {
-  margin: 0px auto;
-  position: absolute;
-}*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background: #2b3543;
+  background-color: $body-bg;
+  font-family: $base-font-stack;
+  color: $base-font-color;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 20px;
+
+  @neat-outer-container;
 }
 
 .main-container {
   padding-left: 2px;
 }
 
-.navbar {
+/*.navbar {
   background-color: #2b3543;
   border-radius: 5px;
   margin-bottom: 5px;
   padding: 20px 0;
-  /*height: 55px;*/
+}*/
+
+header {
+  padding: 10px 0;
 }
 
-.header-title {
+.portal {
   background: url('../../assets/img/logo2.png') no-repeat top center;
+  background-size: contain;
   display: block;
   height: 45px;
   text-indent: -9999em;
+
 }
 
-
-h1 { 
-  text-align: center;
-  text-transform: uppercase;
-}
-
-h3 { 
-  text-align: center;
-  color: #7cb5ec;
-}
 
 textarea:focus, input:focus{
     outline: none;
@@ -54,25 +66,33 @@ input[type=text] {
     outline: none;
 }
 
+.content-wrapper {
+  @neat-outer-container;
+}
+
 .content {
+  color: #fff;
+  text-align: center;
+
+  @neat-span-columns 6;
+  /*@neat-shift 3;*/
+}
+
+.start-container {
   background: #eee;
-  border-radius: 10px;
+  border-radius: 20px;
+  color: inherit;
   padding: 20px;
-  grid-column: 6/12;
-  grid-push: 3/12;
 }
 
 
 .voters {
   text-align: center;
-  color: inherit;
   font-weight: bold;
   font-size: 100px;
   line-height: 100px;
   display: inline-block;
   margin-bottom: 0;
-  /*margin-top: -25px;
-  margin-bottom: -25px;*/
 }
 
 
@@ -90,6 +110,7 @@ input[type=text] {
   margin-bottom: 50px;
   transition: all 0.3s ease-out;
 }
+
 
 
 .plusMinus:active {
@@ -125,10 +146,6 @@ input[type=text] {
     color: #eee;
 }
 
-.container {
-  padding-right: 0px;
-  padding-left: 0px;
-}
 
 .hc-chart {
   position: relative;
@@ -384,15 +401,18 @@ input[type=text] {
 }
 
 .taskMenu {
-  grid-column: 3/12;
+  /*grid-column: 3/12;*/
+  @neat-span-columns 3;
 }
 
 .chartDiv {
-  grid-column: 6/12;
+  /*grid-column: 6/12;*/
+  @neat-span-columns 6;
 }
 
 .completedTasks {
   font-size: 11px !important;
   text-align: left;
-  grid-column: 3/12 !last;
+  /*grid-column: 3/12 !last;*/
+  @neat-span-columns 3;
 }

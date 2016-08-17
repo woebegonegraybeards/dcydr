@@ -8,5 +8,4 @@ angular.module('SprintPal', [
   'MainService',
   'VoteService',
   'TaskService'
-  // 'highcharts-ng'
 ]);
