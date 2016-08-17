@@ -1,8 +1,20 @@
-<div class="content text-center">
+<div class="content-wrapper">
+  <div class="content">
+    <div class="container">
+      <p>Rate your sprint tasks in real-time!</p>
+      <div class="start-container">
+        <h3>How many members are voting?</h3>
+        <button class="plusMinus" ng-click="decNumOfVoters()">-</button>
+        <h1 class="voters">{{ voteObj.totalVotes }}</h1>
+        <button class="plusMinus" ng-click="incNumOfVoters()">+</button>
+        <button class="go" ng-click="go(topic)">Start!</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- <form class="task-form">
-    <input type="text" ng-model="topic" class='task-form' /><br />
-  </form> -->
+<!--
+<div class="content text-center">
 
   <div id="counter">
     <button class="plusMinus" ng-click="decNumOfVoters()">-</button>
@@ -16,3 +28,4 @@
   <button class="go" ng-click="go(topic)">Start!</button>
   
 </div>
+-->
