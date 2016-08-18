@@ -20,8 +20,6 @@ TBD
 
 ## Usage
 
-(UNDER CONSTRUCTION)
-
 A group is trying to decide whether or not to a do a particular thing (watch a particular movie, go out to dinner, etc.)
 
 One person in the group goes to our site and sees View 1: Voting setup. They can incremenet or decrement the number of voters (the size of the group) at the top, then press the button to start the voting session.
@@ -109,8 +107,6 @@ npm install
 
 ### User Views
 
-(UNDER CONSTRUCTION)
-
 You can see the UX/UI sketches of views 1, 2, and 3 here:
 https://drive.google.com/file/d/0ByfR6UjPYbmhSTcweVJaNjRwcWs/view?usp=sharing
 
@@ -118,9 +114,6 @@ https://drive.google.com/file/d/0ByfR6UjPYbmhSTcweVJaNjRwcWs/view?usp=sharing
 
 
 ### Architecture
-
-(UNDER CONSTRUCTION)
-
 
 You can see the sketch of our client and server (and how they interact with each other) here:
 https://drive.google.com/file/d/0ByfR6UjPYbmhaS02R01OZEVsLW8/view?usp=sharing

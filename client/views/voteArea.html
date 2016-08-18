@@ -1,16 +1,38 @@
-<button ng-click="reset()">Reset</button>.
-<div class="jumbotron text-center main-container">
-  <div class='votebox'>
+<!-- Menu Button -->
+<div class='menu-button' ng-controller='TaskController' ng-click='showSideNav()'>
+  <img src='../assets/img/icon-menu.svg' width='30px' height='20px' class='menu-icon' />
+</div>
+
+<!-- Side Nav -->
+<div class='side-nav' ng-controller='TaskController'>
+  <div class='exit-button' ng-click='hideSideNav()'>
+    <img src='../assets/img/x.svg' width='20px' height='20px' class='exit-icon' />
+  </div>
+  <h3 class='task-header'>Task Queue</h3>
+  <form ng-submit='addSingleTopic()' class="task-form">
+    <input type="text" ng-model="topic" class='task-input' placeholder='Task Item' /><br />
+  </form>
+  <!-- <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }} | {{ task.code }}</p> -->
+  <p class='task-list' ng-repeat='task in taskList track by $index'>•  {{ task }}</p>
+  <button class='reset-button' ng-click="reset()">Reset</button>
+</div>
+
+<!-- Dims the screen -->
+<div class='screen-fade' ng-controller='TaskController' ng-click='hideSideNav()'>
+</div>
+
+<div class="main-container">
   <div class="container">
   
-    <div ng-controller='TaskController' class='taskMenu'>
-      <h5 class='task-header'>Task Queue</h5>
+    <!-- <div ng-controller='TaskController' class='taskMenu'>
+      <h5 class='task-header'>Task Queue</h5> -->
       <!-- <form ng-submit='addTopic()' class="task-form"> -->
-      <form ng-submit='addSingleTopic()' class="task-form">
+      <!-- <form ng-submit='addSingleTopic()' class="task-form">
         <input type="text" ng-model="topic" class='task-form' placeholder='Task Item' /><br />
-      </form>
-      <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }}</p>
-    </div>
+      </form> -->
+      <!-- <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }} | {{ task.code }}</p> -->
+      <!-- <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }}</p>
+    </div> -->
 
     <div ng-controller='VotingController' class='chartDiv'>
       <div class="hc-chart" items="chartData" votercount="voterCount" topic='topicItem'></div>
@@ -24,10 +46,11 @@
       <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
     </div>
     
-    <div ng-controller='TaskController' class='completedTasks'>
-      <h5 class='task-header'>Rated Tasks</h5>
-      <p class='task-list-complete' ng-repeat='task in completedTasks track by $index'>{{ task.task }}: <strong class='result-num'>{{ task.result }}</strong></p>
-    </div>
-  </div>
+    
   </div>
 </div>
+
+<!--     <div ng-controller='TaskController' class='completedTasks'>
+      <h5 class='task-header'>Rated Tasks</h5>
+      <p class='task-list-complete' ng-repeat='task in completedTasks track by $index'>{{ task.task }}: <strong class='result-num'>{{ task.result }}</strong></p>
+    </div> -->
