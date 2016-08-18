@@ -131,7 +131,9 @@ p {
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 1em;
-  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 30em;
 }
 
 .code {
@@ -166,13 +168,9 @@ body {
   margin: 0 auto;
   max-width: 1040px;
   padding: 0 20px;
-
   max-width: 64em;
-
   margin-left: auto;
-
   margin-right: auto;
-
   *zoom: 1;
 }
 
@@ -189,15 +187,19 @@ body {
   padding-left: 2px;
 }
 
-/*.navbar {
-  background-color: #2b3543;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 20px 0;
-}*/
-
 header {
   padding: 10px 0;
+}
+
+footer {
+  background: #dedede;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  max-width: 100%;
 }
 
 .portal {
@@ -206,8 +208,8 @@ header {
           background-size: contain;
   display: block;
   height: 45px;
+  margin-left: 30px;
   text-indent: -9999em;
-
 }
 
 textarea:focus, input:focus{
@@ -223,44 +225,100 @@ input[type=text] {
 }
 
 .content-wrapper {
-  max-width: 64em;
-  margin-left: auto;
-  margin-right: auto;
-  *zoom: 1;
 }
 
-.content-wrapper:before, .content-wrapper:after {
-  content: " ";
-  display: table;
+.hero {
+  color: #fff;
+  text-align: center;
 }
 
-.content-wrapper:after {
-  clear: both;
+.hero h1,
+.hero h3 {
+  color: #fff;
+}
+
+.hero-content {
+  padding: 40px 0;
 }
 
 .content {
-  color: #fff;
+  background: #eee;
+  color: inherit;
+  margin: 2em 0 0;
+  padding: 20px 0;
   text-align: center;
 
-  display: block;
+  box-sizing: border-box;
 
-  float: left;
-
-  margin-right: 2.35765160%;
-
-  width: 48.82117420%;
-  /*@neat-shift 3;*/
+  width: 100%;
 }
 
-.content:last-child {
-  margin-right: 0;
+.content-features-container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.content-feature {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 48em) {
+  .content-feature {
+    display: block;
+    float: left;
+    margin-right: 2.35765160%;
+    width: 31.76156560%;
+  }
+  .content-feature:last-child {
+    margin-right: 0;
+  }
+}
+
+.content-icon {
+  background: no-repeat center center;
+  -webkit-background-size: contain;
+          background-size: contain;
+  display: block;
+  margin: 20px auto;
+  height: 120px;
+  padding: 20px;
+  max-width: 120px;
+}
+
+.content-icon-vote {
+  background-image: url('../img/vote-check.png');
+}
+
+.content-icon-graph {
+  background-image: url('../img/graph.png');
+}
+
+.content-icon-list {
+  background-image: url('../img/list.png');
 }
 
 .start-container {
-  background: #eee;
+  background-color: rgba(255, 255, 255, 0.09999999999999998);
   border-radius: 20px;
   color: inherit;
   padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 35.5em) {
+  .start-container {
+    display: block;
+    float: left;
+    margin-right: 2.35765160%;
+    width: 48.82117420%;
+    margin-left: 25.58941290%;
+  }
+  .start-container:last-child {
+    margin-right: 0;
+  }
 }
 
 .voters {
@@ -272,65 +330,53 @@ input[type=text] {
   margin-bottom: 0;
 }
 
-.plusMinus {
-  text-align: center;
-  color: #7cb5ec;
-  background-color: #eee;
-  font-size: 33px;
-  font-weight: bold;
-  width: 60px;
-  height: 60px;
+.btn-container {
   display: inline-block;
-  margin: 0 20px;
-  border: 1px solid #7cb5ec;
-  margin-bottom: 50px;
+  line-height: 100px;
+}
+
+.btn {
+  background-color: transparent;
+  border: solid 1px #7cb5ec;
+  color: #7cb5ec;
+  cursor: pointer;
+  text-align: center;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
-.plusMinus:active {
+.btn:hover {
   background-color: #7cb5ec;
   color: #fff;
 }
 
-/*Hover does not work well with mobile*/
-
-.plusMinus:hover {
-    background-color: #7cb5ec;
-    color: #fff;
-}
-
-.go {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
-  display: block;
-  margin: auto;
-  width: 200px;
-  text-align: center;
-  color: #7cb5ec;
-  background-color: #eee;
+.btn-circle {
+  border: 1px solid #7cb5ec;
+  border-radius: 50%;
+  display: inline-block;
   font-size: 33px;
   font-weight: bold;
-  padding: 15px 20px;
-  border: 1px solid #7cb5ec;
+  height: 50px;
+  margin: 0 10px;
+  margin-bottom: 50px;
+  vertical-align: top;
+  width: 50px;
 }
 
-.go:hover {
-    background-color: #7cb5ec;
-    color: #eee;
+.btn-go {
+  border-radius: 5px;
+  color: #7cb5ec;
+  font-size: 1.5em;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding: 15px 2em;
 }
 
 .hc-chart {
   position: relative;
   margin: 0 auto;
   width: 500px;
-}
-
-.votebox {
-  padding-right: -60px;
-  padding-left: -60px;
-  margin: auto;
 }
 
 .task-form {

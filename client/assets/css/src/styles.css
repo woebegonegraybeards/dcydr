@@ -25,7 +25,6 @@ body {
   margin: 0 auto;
   max-width: $max-width;
   padding: 0 20px;
-
   @neat-outer-container;
 }
 
@@ -33,15 +32,19 @@ body {
   padding-left: 2px;
 }
 
-/*.navbar {
-  background-color: #2b3543;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  padding: 20px 0;
-}*/
-
 header {
   padding: 10px 0;
+}
+
+footer {
+  background: #dedede;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  max-width: 100%;
 }
 
 .portal {
@@ -49,10 +52,9 @@ header {
   background-size: contain;
   display: block;
   height: 45px;
+  margin-left: 30px;
   text-indent: -9999em;
-
 }
-
 
 textarea:focus, input:focus{
     outline: none;
@@ -67,22 +69,81 @@ input[type=text] {
 }
 
 .content-wrapper {
-  @neat-outer-container;
+}
+
+.hero {
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1,
+.hero h3 {
+  color: #fff;
+}
+
+.hero-content {
+  padding: 40px 0;
 }
 
 .content {
-  color: #fff;
+  background: #eee;
+  color: inherit;
+  margin: 2em 0 0;
+  padding: 20px 0;
   text-align: center;
 
-  @neat-span-columns 6;
-  /*@neat-shift 3;*/
+  @neat-fill-parent;
+}
+
+.content-features-container {
+  clear:fix;
+}
+
+.content-feature {
+  @neat-fill-parent;
+}
+
+@media (--medium) {
+  .content-feature {
+    @neat-span-columns 4;
+  }
+}
+
+.content-icon {
+  background: no-repeat center center;
+  background-size: contain;
+  display: block;
+  margin: 20px auto;
+  height: 120px;
+  padding: 20px;
+  max-width: 120px;
+}
+
+.content-icon-vote {
+  background-image: url('../img/vote-check.png');
+}
+
+.content-icon-graph {
+  background-image: url('../img/graph.png');
+}
+
+.content-icon-list {
+  background-image: url('../img/list.png');
 }
 
 .start-container {
-  background: #eee;
+  background-color: color(#fff a(-90%));
   border-radius: 20px;
   color: inherit;
   padding: 20px;
+  @neat-fill-parent;
+}
+
+@media (--small) {
+  .start-container {
+    @neat-span-columns 6;
+    @neat-shift 3;
+  }
 }
 
 
@@ -95,55 +156,47 @@ input[type=text] {
   margin-bottom: 0;
 }
 
-
-.plusMinus {
-  text-align: center;
-  color: #7cb5ec;
-  background-color: #eee;
-  font-size: 33px;
-  font-weight: bold;
-  width: 60px;
-  height: 60px;
+.btn-container {
   display: inline-block;
-  margin: 0 20px;
-  border: 1px solid #7cb5ec;
-  margin-bottom: 50px;
+  line-height: 100px;
+}
+
+.btn {
+  background-color: transparent;
+  border: solid 1px $blue;
+  color: $blue;
+  cursor: pointer;
+  text-align: center;
   transition: all 0.3s ease-out;
 }
 
-
-
-.plusMinus:active {
-  background-color: #7cb5ec;
+.btn:hover {
+  background-color: $blue;
   color: #fff;
 }
 
-
-/*Hover does not work well with mobile*/
-.plusMinus:hover {
-    background-color: #7cb5ec;
-    color: #fff;
-}
-
-.go {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
-  display: block;
-  margin: auto;
-  width: 200px;
-  text-align: center;
-  color: #7cb5ec;
-  background-color: #eee;
+.btn-circle {
+  border: 1px solid $blue;
+  border-radius: 50%;
+  display: inline-block;
   font-size: 33px;
   font-weight: bold;
-  padding: 15px 20px;
-  border: 1px solid #7cb5ec;
+  height: 50px;
+  margin: 0 10px;
+  margin-bottom: 50px;
+  vertical-align: top;
+  width: 50px;
 }
 
-.go:hover {
-    background-color: #7cb5ec;
-    color: #eee;
+
+.btn-go {
+  border-radius: 5px;
+  color: $blue;
+  font-size: 1.5em;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding: 15px 2em;
 }
 
 
@@ -151,12 +204,6 @@ input[type=text] {
   position: relative;
   margin: 0 auto;
   width: 500px;
-}
-
-.votebox {
-  padding-right: -60px;
-  padding-left: -60px;
-  margin: auto;
 }
 
 .task-form {
@@ -188,7 +235,7 @@ input[type=text] {
 
 /*.header-title a {
   text-align: center !important;
-  color: #7cb5ec;
+  color: $blue;
   font-size: 36px !important;
   letter-spacing: 15px;
   font-weight: bold;
@@ -234,7 +281,7 @@ input[type=text] {
   /*border-radius: 2px;*/
   display: inline-block;
   margin: auto;
-  /*border: 0px solid #7cb5ec;*/
+  /*border: 0px solid $blue;*/
   border: 0px;
   border-radius: 2px;
   padding: 0 0 0px 0;
@@ -273,13 +320,13 @@ input[type=text] {
 }
 
 .plusMinus:active {
-  background-color: #7cb5ec;
+  background-color: $blue;
   color: #eee;
   transform: translateY(0px);
 }
 
 /*.vote:hover {
-    background-color: #7cb5ec;
+    background-color: $blue;
     color: #eee;
 }*/
 
@@ -291,43 +338,43 @@ input[type=text] {
   width: 175px;
   text-align: center;
   font-style: italic;
-  color: #7cb5ec;
+  color: $blue;
   background-color: #eee;
   border-radius: 25px;
-  border: 1px solid #7cb5ec;
+  border: 1px solid $blue;
   margin-top: 50px;
   margin-bottom: 20px;
 }
 
 .reset:active {
-  background-color: #7cb5ec;
+  background-color: $blue;
   color: #eee;
   transform: translateY(0px);
 }
 
 /*.reset:hover {
-    background-color: #7cb5ec;
+    background-color: $blue;
     color: #eee;
 }*/
 
 .yourVoteHead { 
   text-align: center;
   font-size: 18px;
-  color: #7cb5ec;
+  color: $blue;
   margin-top: -30px;
 }
 
 .groupVoteHead { 
   text-align: center;
   font-size: 25px;
-  color: #7cb5ec;
+  color: $blue;
   margin-top: -45px;
 }
 
 .yourVote {
   text-align: center;
   color: #eee;
-  background: #7cb5ec;
+  background: $blue;
   font-size: 40px;
   padding-top: 12px;
   padding-left: 2px;
@@ -336,7 +383,7 @@ input[type=text] {
   border-radius: 40px;
   display: block;
   margin: auto;
-  border: 1px solid #7cb5ec;
+  border: 1px solid $blue;
   margin-top: 0px;
   margin-bottom: 40px;
 }
@@ -344,7 +391,7 @@ input[type=text] {
 .result {
   text-align: center;
   text-transform: uppercase;
-  color: #7cb5ec;
+  color: $blue;
   font-size: 115px;
   font-weight: bold;
   padding-top: 43px;
@@ -354,7 +401,7 @@ input[type=text] {
   border-radius: 50%;
   display: block;
   margin: auto;
-  border: 1px solid #7cb5ec;
+  border: 1px solid $blue;
   margin-top: 0px;
   margin-bottom: 40px;
 }
