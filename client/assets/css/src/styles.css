@@ -36,6 +36,7 @@ header {
   padding: 10px 0;
 }
 
+
 footer {
   background: #dedede;
   padding: 20px 0;
@@ -45,6 +46,99 @@ footer {
 footer p {
   margin: 0;
   max-width: 100%;
+}
+
+.menu-button {
+  top: 0;
+  left: 0;
+  float: left;
+  width: 50px;
+  height:48px;
+  position: absolute;
+}
+.menu-button:hover {
+  background-color: color(#2b3543 l(+10%));
+  cursor: pointer;
+}
+.menu-icon {
+  margin: 14px 0 0 9px;
+}
+
+.screen-fade {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 888;
+  background-color: #000;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  top: 0;
+  right: 0;
+  bottom:0;
+  left: 0;
+}
+.screen-fade-show {
+  visibility: visible;
+  opacity: .5;
+}
+
+.side-nav {
+  left: -90%;
+  min-height: 100%;
+  width: 90%;
+  top: 0;
+  position: absolute;
+  z-index: 999;
+  /*background-color: green;*/
+  /*background-color: #2b3543;*/
+  background-color: #eee;
+  transition: all 0.3s ease-out;
+  padding: 10px 0 30px 0;
+}
+.side-nav-show {
+  left: -1px;
+}
+@media (--medium) {
+  .side-nav {
+    position: fixed;
+    left: 0px;
+    overflow-y: scroll;
+    height: 100%;
+    /*width: 300px;*/
+    @neat-span-columns 4;
+  }
+  .screen-fade {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .menu-button {
+    display: none;
+  }
+  .exit-button {
+    display: none;
+  }
+  header {
+    @neat-shift 4;
+  }
+  .chartDiv {
+    /*@neat-span-columns 10;*/
+    /*@neat-shift 1;*/
+  }
+  .main-container {
+    @neat-shift 4;
+  }
+}
+
+
+.exit-button {
+  position: relative;
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+.exit-icon {
+  margin: 11px 0 0 7px;
 }
 
 .portal {
@@ -203,25 +297,58 @@ input[type=text] {
 .hc-chart {
   position: relative;
   margin: 0 auto;
-  width: 500px;
+  width: 100%;
 }
 
 .task-form {
-  width: 200px;
-  font-size: 21px;
+  padding: 0 8px 0 8px;
+  margin-top: -10px;
+}
+
+.task-header {
+  padding: 5px 0 0 10px;
+  text-align: left;
+}
+
+.task-input {
+  height: 40px;
+  width: 100%;
+  font-size: 19px;
   font-weight: 200;
-  margin: 0 0 0 5px;
 }
 
 .task-list {
+  font-size: 17px;
+  line-height: 10px;
+  margin: 13px 0 0 18px;
+  font-weight: 200; 
   text-align: left;
-  margin: 0 0 0 5px;
-  line-height: 21px;
 }
 
 .taskMenu {
   width: 225px;
   float: left;
+}
+
+.reset-button {
+  position: relative;
+  margin-top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  font-size: 19px;
+  font-weight: 100;
+  width: 300px;
+  background-color: #2b3543;
+  border: 0px;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  padding: 15px 0;
+}
+.reset-button:hover {
+  background-color: color(#2b3543 l(+10%));
+  cursor: pointer;
 }
 
 .chartBox {
@@ -416,21 +543,6 @@ input[type=text] {
   padding-top: 15px;
 }
 
-.task-form {
-  font-size: 15px;
-  margin: 0px 0 0 0;
-}
-
-.task-header {
-  text-align: left;
-}
-
-.task-list {
-  font-size: 15px;
-  line-height: 9px;
-  margin: 13px 0 0 6px;
-}
-
 .taskMenu p {
   font-size: 15px;
   line-height: 9px;
@@ -453,6 +565,7 @@ input[type=text] {
 }
 
 .chartDiv {
+  width: 100%;
   /*grid-column: 6/12;*/
   @neat-span-columns 6;
 }

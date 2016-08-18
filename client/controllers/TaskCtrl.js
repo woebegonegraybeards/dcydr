@@ -5,6 +5,15 @@ angular.module('TaskCtrl', [])
   
   $scope.taskList = [];         // Current task list
   $scope.completedTasks = [];   // Completed tasks
+  
+  $scope.showSideNav = function() {
+    document.getElementsByClassName('screen-fade')[0].classList.add('screen-fade-show');
+    document.getElementsByClassName('side-nav')[0].classList.add('side-nav-show');
+  };
+  $scope.hideSideNav = function() {
+    document.getElementsByClassName('screen-fade')[0].classList.remove('screen-fade-show');
+    document.getElementsByClassName('side-nav')[0].classList.remove('side-nav-show');
+  };
 
   $scope.addSingleTopic = function( ) {     // Sends single topic to backend
     Task.addSingleTopic($scope.topic)       // Sends POST to /api/topic with topic
