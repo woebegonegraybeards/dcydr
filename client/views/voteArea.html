@@ -9,12 +9,10 @@
       <form ng-submit='addSingleTopic()' class="task-form">
         <input type="text" ng-model="topic" class='task-form' placeholder='Task Item' /><br />
       </form>
-      <!-- <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }} | {{ task.code }}</p> -->
       <p class='task-list' ng-repeat='task in taskList track by $index'>{{ task }}</p>
     </div>
 
     <div ng-controller='VotingController' class='chartDiv'>
-      <!-- <div class="hc-chart" data="chartData" title="chartTitle"></div> -->
       <div class="hc-chart" items="chartData" votercount="voterCount" topic='topicItem'></div>
       <div class='voting-buttons'>
         <button class="vote one" ng-click="postVote1()">1</button>
@@ -27,7 +25,6 @@
     </div>
     
     <div ng-controller='TaskController' class='completedTasks'>
-      <!-- <p>{{ completedTasks }}</p> -->
       <h5 class='task-header'>Rated Tasks</h5>
       <p class='task-list-complete' ng-repeat='task in completedTasks track by $index'>{{ task.task }}: <strong class='result-num'>{{ task.result }}</strong></p>
     </div>

@@ -1,31 +1,44 @@
 <div class="content-wrapper">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Be agile.</h1>
+        <p>Rate your sprint tasks in real-time! Choose the number of voters, enter your tasks, and get averages.</p>
+      </div>
+      <div class="start-container">
+        <h3>How many voters?</h3>
+        <div class="btn-container">
+          <button class="btn btn-circle plusMinus" ng-click="decNumOfVoters()">-</button>
+        </div>
+        <h1 class="voters">{{ voteObj.totalVotes }}</h1>
+        <div class="btn-container">
+          <button class="btn btn-circle plusMinus" ng-click="incNumOfVoters()">+</button>
+        </div>
+        
+        <button class="btn btn-go" ng-click="go(topic)">Start!</button>
+      </div>
+    </div>
+  </div>
+
   <div class="content">
     <div class="container">
-      <p>Rate your sprint tasks in real-time!</p>
-      <div class="start-container">
-        <h3>How many members are voting?</h3>
-        <button class="plusMinus" ng-click="decNumOfVoters()">-</button>
-        <h1 class="voters">{{ voteObj.totalVotes }}</h1>
-        <button class="plusMinus" ng-click="incNumOfVoters()">+</button>
-        <button class="go" ng-click="go(topic)">Start!</button>
+      <div class="content-features-container">
+        <div class="content-feature">
+          <div class="content-icon content-icon-vote"></div>
+          <h4>Real-Time Voting</h4>
+          <p>Members can anonymously vote in real-time with teammates.</p>
+        </div>
+        <div class="content-feature">
+          <div class="content-icon content-icon-graph"></div>
+          <h4>Data Visualization</h4>
+          <p>Instantly see the distribution of votes as they are counted.</p>
+        </div>
+        <div class="content-feature">
+          <div class="content-icon content-icon-list"></div>
+          <h4>Task Tracking</h4>
+          <p>Add tasks to be rated and record their average rating once voting's over.</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<!--
-<div class="content text-center">
-
-  <div id="counter">
-    <button class="plusMinus" ng-click="decNumOfVoters()">-</button>
-    <h1 class="voters">{{ voteObj.totalVotes }}</h1>
-    <button class="plusMinus" ng-click="incNumOfVoters()">+</button>
-
-  </div>
-
-  <div class="space2"></div>
-
-  <button class="go" ng-click="go(topic)">Start!</button>
-  
-</div>
--->

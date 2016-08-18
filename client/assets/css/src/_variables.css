@@ -1,5 +1,5 @@
 /* COLORS */
-$blue: #6495ed;
+$blue: #7cb5ec;
 $blue-darker: #4279cd;
 $red: #dc143c;
 $green: #2ecc71;
@@ -55,7 +55,7 @@ $paragraph-color: inherit;
 $paragraph-line-height: 1.6;
 $paragraph-margin-bottom: 1em;
 $paragraph-font-weight: $normal-weight;
-$paragraph-max-width: auto;
+$paragraph-max-width: 30em;
 
 $small-font-size: 0.875;
 
