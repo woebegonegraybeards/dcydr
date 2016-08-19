@@ -190,6 +190,7 @@ body {
 }
 
 .main-container {
+  margin-left: 9px;
 }
 
 .main:after {
@@ -320,6 +321,7 @@ footer p {
     float: left;
     margin-right: 2.35765160%;
     width: 65.88078280%;
+    margin-left: -10px;
   }
   .main-container:last-child {
     margin-right: 0;
@@ -539,10 +541,7 @@ input[type=text] {
 }
 
 .task-list {
-  /*font-size: 17px;*/
-  /*line-height: 10px;*/
   margin: 13px 0 0 18px;
-  /*font-weight: 200; */
   text-align: left;
   list-style-type: number;
   counter-reset: task-counter;
@@ -569,6 +568,7 @@ input[type=text] {
 
 .reset-button {
   position: relative;
+  width: 250px;
   margin-top: 35px;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -576,7 +576,6 @@ input[type=text] {
   bottom: 0;
   font-size: inherit;
   font-weight: 100;
-  /*width: 300px;*/
   background-color: #2b3543;
   border: 0px;
   color: white;
@@ -588,6 +587,18 @@ input[type=text] {
 .reset-button:hover {
   background-color: rgb(64, 79, 100);
   cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  .reset-button {
+    width: 200px;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.999em) {
+  .reset-button {
+    width: 350px;
+  }
 }
 
 .chartBox {
@@ -632,6 +643,31 @@ input[type=text] {
   font-weight: bold;
 }
 
+.vote-container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.vote-container {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 10px;
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+  *zoom: 1;
+}
+
+.vote-container:before, .vote-container:after {
+  content: " ";
+  display: table;
+}
+
+.vote-container:after {
+  clear: both;
+}
+
 .vote {
 /*  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;*/
@@ -644,10 +680,8 @@ input[type=text] {
   font-weight: bold;
   width: 70px;
   height: 40px;
-  /*border-radius: 2px;*/
   display: inline-block;
   margin: auto;
-  /*border: 0px solid #7cb5ec;*/
   border: 0px;
   border-radius: 2px;
   padding: 0 0 0px 0;
@@ -663,6 +697,7 @@ input[type=text] {
 .voting-buttons {
   display: block;
   float: left;
+  margin-top: 10px;
 }
 
 .one {
