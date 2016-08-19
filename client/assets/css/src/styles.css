@@ -30,6 +30,7 @@ body {
 }
 
 .main-container {
+  margin-left: 9px;
 }
 
 .main {
@@ -137,6 +138,7 @@ footer p {
   .main-container {
     /*@neat-shift 4;*/
     @neat-span-columns 8;
+    margin-left: -10px;
   }
 }
 
@@ -335,10 +337,7 @@ input[type=text] {
 }
 
 .task-list {
-  /*font-size: 17px;*/
-  /*line-height: 10px;*/
   margin: 13px 0 0 18px;
-  /*font-weight: 200; */
   text-align: left;
   list-style-type: number;
   counter-reset: task-counter;
@@ -365,13 +364,13 @@ input[type=text] {
 
 .reset-button {
   position: relative;
+  width: 250px;
   margin-top: 35px;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
   font-size: inherit;
   font-weight: 100;
-  /*width: 300px;*/
   background-color: #2b3543;
   border: 0px;
   color: white;
@@ -382,6 +381,16 @@ input[type=text] {
 .reset-button:hover {
   background-color: color(#2b3543 l(+10%));
   cursor: pointer;
+}
+@media (--medium) {
+  .reset-button {
+    width: 200px;
+  }
+}
+@media (--medium-large) {
+  .reset-button {
+    width: 350px;
+  }
 }
 
 .chartBox {
@@ -426,6 +435,14 @@ input[type=text] {
   font-weight: bold;
 }
 
+.vote-container {
+  clear: fix;
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: 0 10px;
+  @neat-outer-container;
+}
+
 .vote {
 /*  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;*/
@@ -438,10 +455,8 @@ input[type=text] {
   font-weight: bold;
   width: 70px;
   height: 40px;
-  /*border-radius: 2px;*/
   display: inline-block;
   margin: auto;
-  /*border: 0px solid $blue;*/
   border: 0px;
   border-radius: 2px;
   padding: 0 0 0px 0;
@@ -457,6 +472,7 @@ input[type=text] {
 .voting-buttons {
   display: block;
   float: left;
+  margin-top: 10px;
 }
 
 .one {

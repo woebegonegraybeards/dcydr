@@ -2,8 +2,14 @@
 angular.module('ChartDirective', [])
 
 .directive('hcChart', function () {
+  // chartWidth is the width of the highcharts chart
+  var width;
+  window.onresize = function() {
+    // On a window resize event we update the width variable
+    width = document.getElementsByClassName('main-container')[0].offsetWidth - 50;
+  };
   
-  // var width= $("#chartDiv").width();
+  // console.log('testing: ', document.getElementsByClassName('main-container')[0].offsetWidth - 100);
   
   return {
     // restrict: 'EAC',
@@ -22,6 +28,7 @@ angular.module('ChartDirective', [])
     template: '<div id="container" style="margin: 0 auto">not working</div>',
     
     link: function (scope, element, attrs) {
+      console.log('wiiiiidth: ', width);
       var chart = new Highcharts.Chart({
         chart: {
           backgroundColor: '#eee',
@@ -36,8 +43,8 @@ angular.module('ChartDirective', [])
           // },
           // plotBorderColor: '#606063',
           type: 'column',
-          renderTo: 'container'
-          // width: 500,
+          renderTo: 'container',
+          width: width
           // height: 350
           // plotBackgroundColor: null,
           // plotBorderWidth: null,
