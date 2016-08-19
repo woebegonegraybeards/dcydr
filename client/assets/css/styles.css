@@ -164,6 +164,12 @@ body {
   line-height: 1.5;
 }
 
+.container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1040px;
@@ -184,7 +190,20 @@ body {
 }
 
 .main-container {
-  padding-left: 2px;
+}
+
+.main:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.main {
+  height: 100%;
+}
+
+.main > div {
+  height: 100%;
 }
 
 header {
@@ -264,10 +283,10 @@ footer p {
 
 @media (min-width: 48em) {
   .side-nav {
-    position: fixed;
+    position: relative;
     left: 0px;
-    overflow-y: scroll;
-    height: 100%;
+    /*overflow-y: scroll;*/
+    /*height: 100%;*/
     /*width: 300px;*/
     display: block;
     float: left;
@@ -289,14 +308,21 @@ footer p {
     display: none;
   }
   header {
-    margin-left: 34.11921720%;
+    /*@neat-shift 4;*/
   }
   .chartDiv {
     /*@neat-span-columns 10;*/
     /*@neat-shift 1;*/
   }
   .main-container {
-    margin-left: 34.11921720%;
+    /*@neat-shift 4;*/
+    display: block;
+    float: left;
+    margin-right: 2.35765160%;
+    width: 65.88078280%;
+  }
+  .main-container:last-child {
+    margin-right: 0;
   }
 }
 
@@ -321,6 +347,12 @@ footer p {
   text-indent: -9999em;
 }
 
+@media (min-width: 48em) {
+  .portal {
+    margin-left: 0;
+  }
+}
+
 textarea:focus, input:focus{
     outline: none;
 }
@@ -334,6 +366,7 @@ input[type=text] {
 }
 
 .content-wrapper {
+  height: 100%;
 }
 
 .hero {
@@ -354,7 +387,7 @@ input[type=text] {
   background: #eee;
   color: inherit;
   margin: 2em 0 0;
-  padding: 20px 0;
+  padding: 20px 0 0;
   text-align: center;
 
   box-sizing: border-box;
@@ -506,11 +539,27 @@ input[type=text] {
 }
 
 .task-list {
-  font-size: 17px;
-  line-height: 10px;
+  /*font-size: 17px;*/
+  /*line-height: 10px;*/
   margin: 13px 0 0 18px;
-  font-weight: 200; 
+  /*font-weight: 200; */
   text-align: left;
+  list-style-type: number;
+  counter-reset: task-counter;
+}
+
+.task::before {
+  content: counter(task-counter);
+  counter-increment: task-counter;
+  background: #7cb5ec;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 10px 10px 0;
+  text-align: center;
+  width: 30px;
 }
 
 .taskMenu {
@@ -525,15 +574,15 @@ input[type=text] {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: 0;
-  font-size: 19px;
+  font-size: inherit;
   font-weight: 100;
-  width: 300px;
+  /*width: 300px;*/
   background-color: #2b3543;
   border: 0px;
   color: white;
-  letter-spacing: 2px;
-  border-radius: 4px;
-  padding: 15px 0;
+  /*letter-spacing: 2px;*/
+  border-radius: 5px;
+  padding: 15px 25px;
 }
 
 .reset-button:hover {
@@ -766,14 +815,7 @@ input[type=text] {
 .chartDiv {
   width: 100%;
   /*grid-column: 6/12;*/
-  display: block;
-  float: left;
-  margin-right: 2.35765160%;
-  width: 48.82117420%;
-}
-
-.chartDiv:last-child {
-  margin-right: 0;
+  /*@neat-span-columns 6;*/
 }
 
 .completedTasks {
