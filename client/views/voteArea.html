@@ -49,6 +49,7 @@
 
     <div ng-controller='VotingController' class='chartDiv'>
       <div class="hc-chart" items="chartData" votercount="voterCount" topic='topicItem'></div>
+      
       <div class='voting-buttons'>
         <button class="vote one" ng-click="postVote1()">1</button>
         <button class="vote two" ng-click="postVote2()">2</button>
@@ -63,7 +64,7 @@
   </div>
 </div>
 
-<!--     <div ng-controller='TaskController' class='completedTasks'>
+<!--<div ng-controller='TaskController' class='completedTasks'>
       <h5 class='task-header'>Rated Tasks</h5>
       <p class='task-list-complete' ng-repeat='task in completedTasks track by $index'>{{ task.task }}: <strong class='result-num'>{{ task.result }}</strong></p>
     </div> -->
