@@ -9,8 +9,6 @@ angular.module('ChartDirective', [])
     width = document.getElementsByClassName('main-container')[0].offsetWidth - 50;
   };
   
-  // console.log('testing: ', document.getElementsByClassName('main-container')[0].offsetWidth - 100);
-  
   return {
     // restrict: 'EAC',
     restrict: 'C',

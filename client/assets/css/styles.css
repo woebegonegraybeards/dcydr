@@ -569,6 +569,7 @@ input[type=text] {
 .reset-button {
   position: relative;
   width: 250px;
+  /*width: @neat-fill-parent;*/
   margin-top: 35px;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -589,15 +590,15 @@ input[type=text] {
   cursor: pointer;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 35.5em) and (max-width: 47.999em) {
   .reset-button {
-    width: 200px;
+    width: 350px;
   }
 }
 
 @media (min-width: 48em) and (max-width: 63.999em) {
   .reset-button {
-    width: 350px;
+    width: 200px;
   }
 }
 
@@ -698,26 +699,52 @@ input[type=text] {
   display: block;
   float: left;
   margin-top: 10px;
+  width: 100%;
 }
 
 .one {
-  margin-left: 48px;
+  margin-left: 32px;
+  width: 17%;
+}
+
+.one:hover {
+  cursor: pointer;
 }
 
 .two {
-  margin-left: 15px;
+  margin-left: 2px;
+  width: 17%;
+}
+
+.two:hover {
+  cursor: pointer;
 }
 
 .three {
-  margin-left: 13px;
+  margin-left: 2px;
+  width: 17%;
+}
+
+.three:hover {
+  cursor: pointer;
 }
 
 .four {
-  margin-left: 13px;
+  margin-left: 2px;
+  width: 17%;
+}
+
+.four:hover {
+  cursor: pointer;
 }
 
 .five {
-  margin-left: 13px;
+  margin-left: 2px;
+  width: 17%;
+}
+
+.five:hover {
+  cursor: pointer;
 }
 
 .plusMinus:active {
