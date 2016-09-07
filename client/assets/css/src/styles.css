@@ -461,7 +461,7 @@ input[type=text] {
   border: 0px;
   border-radius: 2px;
   padding: 0 0 0px 0;
-  margin: 0px 5px 0 0;
+  margin: 0px 0px 0 0;
 }
 
 .vote:hover {
@@ -478,44 +478,166 @@ input[type=text] {
 }
 
 .one {
-  margin-left: 32px;
-  width: 17%;
+  margin-left: 24px;
+  width: 16%;
 }
 .one:hover {
   cursor: pointer;
 }
 
 .two {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 .two:hover {
   cursor: pointer;
 }
 
 .three {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 .three:hover {
   cursor: pointer;
 }
 
 .four {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 .four:hover {
   cursor: pointer;
 }
 
 .five {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 .five:hover {
   cursor: pointer;
 }
+
+/* MEDIA QUERIES FOR VOTING BUTTONS */
+@media (--xxsmall) {
+  .one {
+    width: 17%;
+  }
+  .two {
+    width: 17%;
+  }
+  .three {
+    width: 17%;
+  }
+  .four {
+    width: 17%;
+  }
+  .five {
+    width: 17%;
+  }
+}
+@media (--xsmall-small) {
+  .one {
+    width: 17%;
+  }
+  .two {
+    width: 17%;
+  }
+  .three {
+    width: 17%;
+  }
+  .four {
+    width: 17%;
+  }
+  .five {
+    width: 17%;
+  }
+}
+@media (--small) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+@media (--small-medium) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+@media (--medium-large) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+@media (--large) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+@media (--xlarge) {
+ .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  } 
+}
+/* --- END --- MEDIA QUERIES FOR VOTING BUTTONS */
 
 .plusMinus:active {
   background-color: $blue;
