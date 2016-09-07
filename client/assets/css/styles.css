@@ -68,6 +68,8 @@ table {
 
 /* MEDIA QUERIES */
 
+/*@custom-media --xxsmall (width <= 30em);*/
+
 .em { font-style: italic; }
 
 strong { font-weight: 700; }
@@ -686,7 +688,7 @@ input[type=text] {
   border: 0px;
   border-radius: 2px;
   padding: 0 0 0px 0;
-  margin: 0px 5px 0 0;
+  margin: 0px 0px 0 0;
 }
 
 .vote:hover {
@@ -703,8 +705,8 @@ input[type=text] {
 }
 
 .one {
-  margin-left: 32px;
-  width: 17%;
+  margin-left: 24px;
+  width: 16%;
 }
 
 .one:hover {
@@ -712,8 +714,8 @@ input[type=text] {
 }
 
 .two {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 
 .two:hover {
@@ -721,8 +723,8 @@ input[type=text] {
 }
 
 .three {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 
 .three:hover {
@@ -730,8 +732,8 @@ input[type=text] {
 }
 
 .four {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 
 .four:hover {
@@ -739,13 +741,125 @@ input[type=text] {
 }
 
 .five {
-  margin-left: 2px;
-  width: 17%;
+  margin-left: 1px;
+  width: 16%;
 }
 
 .five:hover {
   cursor: pointer;
 }
+
+/* MEDIA QUERIES FOR VOTING BUTTONS */
+
+@media (min-width: 30em) and (max-width: 35.499em) {
+  .one {
+    width: 17%;
+  }
+  .two {
+    width: 17%;
+  }
+  .three {
+    width: 17%;
+  }
+  .four {
+    width: 17%;
+  }
+  .five {
+    width: 17%;
+  }
+}
+
+@media (min-width: 35.5em) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+
+@media (min-width: 35.5em) and (max-width: 47.999em) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+
+@media (min-width: 48em) and (max-width: 63.999em) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+
+@media (min-width: 64em) {
+  .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  }
+}
+
+@media (min-width: 80em) {
+ .one {
+    width: 18%;
+  }
+  .two {
+    width: 18%;
+  }
+  .three {
+    width: 18%;
+  }
+  .four {
+    width: 18%;
+  }
+  .five {
+    width: 18%;
+  } 
+}
+
+/* --- END --- MEDIA QUERIES FOR VOTING BUTTONS */
 
 .plusMinus:active {
   background-color: #7cb5ec;
