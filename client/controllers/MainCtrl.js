@@ -80,6 +80,9 @@ angular.module('MainCtrl', [])
         //make this client the vote starter
         $scope.voteStarter = true;
       });
+
+    // Changes view to vote area
+    $location.path('/voteArea');
   };
 
   // Reset stateView - visible on view 3 for everyone, and also 2 for the organizer (whoever pressed Start)
