@@ -14,6 +14,14 @@ angular.module('VoteCtrl', [])
     [0],
     [0]
   ];
+  
+  $scope.selected = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
 
   $scope.currentVote = null;  // Keeps track of current vote
   $scope.lastVote = null;     // Keeps track of previous vote, if one
@@ -106,6 +114,8 @@ angular.module('VoteCtrl', [])
     // Makes sure the user has voted already
     if ( $scope.currentVote !== null ){
       $scope.lastVote = $scope.currentVote;
+      // Removes selected style from last vote
+      $scope.selected[$scope.lastVote] = false;
       // Removes last vote
       Vote.removeVote($scope.lastVote)
         .catch(function (err) {
@@ -114,6 +124,8 @@ angular.module('VoteCtrl', [])
     }
     // Updates users current vote
     $scope.currentVote = vote;
+    // Adds vote-selected class to this button
+    $scope.selected[vote] = true;
   };
 
   // Takes user vote input and post to server - called when user clicks Y/N on view 2
