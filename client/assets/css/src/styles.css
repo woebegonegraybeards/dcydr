@@ -469,6 +469,11 @@ input[type=text] {
   background-color: rgb(124, 181, 236);
   border-radius: 2px;
 }
+.vote-selected {
+  color: #fff;
+  background-color: rgb(124, 181, 236);
+  border-radius: 2px;
+}
 
 .voting-buttons {
   display: block;

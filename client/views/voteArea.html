@@ -51,11 +51,11 @@
       <div class="hc-chart" items="chartData" votercount="voterCount" topic='topicItem'></div>
       
       <div class='voting-buttons'>
-        <button class="vote one" ng-click="postVote1()">1</button>
-        <button class="vote two" ng-click="postVote2()">2</button>
-        <button class="vote three" ng-click="postVote3()">3</button>
-        <button class="vote four" ng-click="postVote4()">4</button>
-        <button class="vote five" ng-click="postVote5()">5</button>
+        <button class="vote one" ng-class="selected[1] ? 'vote-selected vote' : 'vote'" ng-click="postVote1()">1</button>
+        <button class="vote two" ng-class="selected[2] ? 'vote-selected vote' : 'vote'" ng-click="postVote2()">2</button>
+        <button class="vote three" ng-class="selected[3] ? 'vote-selected vote' : 'vote'" ng-click="postVote3()">3</button>
+        <button class="vote four" ng-class="selected[4] ? 'vote-selected vote' : 'vote'" ng-click="postVote4()">4</button>
+        <button class="vote five" ng-class="selected[5]] ? 'vote-selected vote' : 'vote'" ng-click="postVote5()">5</button>
       </div>
       <button class="reset" ng-click="reset()" ng-show="voteStarter">Reset Voting Session</button>
     </div>
