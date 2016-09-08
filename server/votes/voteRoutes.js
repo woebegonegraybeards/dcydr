@@ -53,6 +53,13 @@ module.exports = function(app) {
     voteController.voteFive();
     res.send(voteController);
   });
+  
+  app.route('/remove').post(function(req, res) {
+    // Removes vote from system
+    voteController.removeVote(req.body.data);
+    // res.send(voteController);
+    res.send(voteController);
+  });
 
   app.route('/reset').post(function(req, res) {
     voteController.voteReset();

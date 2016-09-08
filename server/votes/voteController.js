@@ -56,6 +56,19 @@ module.exports = {
     this.checkResult();
     server.io.emit('stateViewChange', this);
   },
+  
+  removeVote: function(vote) {
+    var reduceNumber = {
+      1: 'one',
+      2: 'two',
+      3: 'three',
+      4: 'four',
+      5: 'five'
+    }
+    // Removes Vote
+    this[reduceNumber[vote]]--;
+    server.io.emit('stateViewChange', this);
+  },
 
   //check result
   checkResult: function () {

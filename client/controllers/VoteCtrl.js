@@ -2,6 +2,10 @@
 angular.module('VoteCtrl', [])
 
 .controller('VotingController', function($scope, Vote, Main, $interval, $location) {
+
+  $scope.init = function(){
+    Vote.getVoters();
+  }();
   
   $scope.chartData = [
     [0],
@@ -10,9 +14,11 @@ angular.module('VoteCtrl', [])
     [0],
     [0]
   ];
-  
-  $scope.topicItem = '';    // Chart topic item title
-  $scope.currentItem = 0;   // Current item selected
+
+  $scope.currentVote = null;  // Keeps track of current vote
+  $scope.lastVote = null;     // Keeps track of previous vote, if one
+  $scope.topicItem = '';      // Chart topic item title
+  $scope.currentItem = 0;     // Current item selected
   $scope.voteStarter = false; // For setting which client started the vote
   
   // onTopicChange
@@ -43,7 +49,6 @@ angular.module('VoteCtrl', [])
       [data.five]
     ];
     
-    
     // Sets number of votes
     $scope.voterCount = data.totalVotes;
     // Updates current chart topic
@@ -51,10 +56,6 @@ angular.module('VoteCtrl', [])
     // This line seems to be needed to make sure all clients update appropriately
     $scope.$apply();
   });
-  
-  $scope.init = function(){
-    Vote.getVoters();
-  }();
   
   // When the current topic is complete
   Main.socket.on('onTopicComplete', function(data){
@@ -99,9 +100,28 @@ angular.module('VoteCtrl', [])
   //---view2------------------------------------------------------
   
   $scope.chartOne = 0;
+  
+  // Updates users current and last vote
+  $scope.updateVoteRecords = function(vote) {
+    // Makes sure the user has voted already
+    if ( $scope.currentVote !== null ){
+      $scope.lastVote = $scope.currentVote;
+      // Removes last vote
+      Vote.removeVote($scope.lastVote)
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+    // Updates users current vote
+    $scope.currentVote = vote;
+  };
 
   // Takes user vote input and post to server - called when user clicks Y/N on view 2
   $scope.postVote1 = function() {
+    // Updates Records
+    $scope.updateVoteRecords(1);
+    
+    // Submits new vote
     Vote.addVote1()
       .catch(function (err) {
         console.log(err);
@@ -109,6 +129,9 @@ angular.module('VoteCtrl', [])
   };
 
   $scope.postVote2 = function() {
+    // Updates Records
+    $scope.updateVoteRecords(2);
+    // Submits new vote
     Vote.addVote2()
       .catch(function (err) {
         console.log(err);
@@ -116,6 +139,9 @@ angular.module('VoteCtrl', [])
   };
   
   $scope.postVote3 = function() {
+    // Updates Records
+    $scope.updateVoteRecords(3);
+    // Submits new vote
     Vote.addVote3().
       catch(function (err) {
         console.log(err);
@@ -123,6 +149,9 @@ angular.module('VoteCtrl', [])
   };
   
   $scope.postVote4 = function() {
+    // Updates Records
+    $scope.updateVoteRecords(4);
+    // Submits new vote
     Vote.addVote4().
       catch(function (err) {
         console.log(err);
@@ -130,6 +159,9 @@ angular.module('VoteCtrl', [])
   };
   
   $scope.postVote5 = function() {
+    // Updates Records
+    $scope.updateVoteRecords(5);
+    // Submits new vote
     Vote.addVote5().
       catch(function (err) {
         console.log(err);
