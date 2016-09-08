@@ -192,7 +192,7 @@ body {
 }
 
 .main-container {
-  margin-left: 9px;
+  /*margin-left: 9px;*/
 }
 
 .main:after {
@@ -266,18 +266,18 @@ footer p {
 }
 
 .side-nav {
-  left: -90%;
   min-height: 100%;
   width: 90%;
-  top: 0;
   position: absolute;
+  top: 0;
+  left: -90%;
   z-index: 999;
   /*background-color: green;*/
   /*background-color: #2b3543;*/
   background-color: #eee;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  padding: 10px 0 30px 0;
+  padding: 10px;
 }
 
 .side-nav-show {
@@ -331,6 +331,7 @@ footer p {
 }
 
 .exit-button {
+  cursor: pointer;
   position: relative;
   float: right;
   width: 40px;
@@ -367,6 +368,12 @@ input[type=text] {
 
 *:focus {
     outline: none;
+}
+
+.content-wrapper:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .content-wrapper {
@@ -520,32 +527,35 @@ input[type=text] {
 }
 
 .hc-chart {
+  background: #eee;
+  border-radius: 5px;
+  padding: 10px 0;
   position: relative;
   margin: 0 auto;
   width: 100%;
 }
 
 .task-form {
-  padding: 0 8px 0 8px;
-  margin-top: -10px;
+
 }
 
 .task-header {
-  padding: 5px 0 0 10px;
   text-align: left;
 }
 
 .task-input {
+  border: solid 1px #bbb;
+  border-radius: 5px;
   height: 40px;
   width: 100%;
-  font-size: 19px;
+  font-size: inherit;
   font-weight: 200;
 }
 
 .task-list {
-  margin: 13px 0 0 18px;
+  margin: 10px 0;
   text-align: left;
-  list-style-type: number;
+  list-style-type: none;
   counter-reset: task-counter;
 }
 
@@ -608,11 +618,6 @@ input[type=text] {
   width: 510px;
 }
 
-.completedTasks {
-  width: 185px;
-  float: right;
-}
-
 /*.header-title a {
   text-align: center !important;
   color: #7cb5ec;
@@ -631,7 +636,7 @@ input[type=text] {
 
 .header-title {
   text-align: center;
-  color: rgb(124, 181, 236);
+  color: #7cb5ec;
   font-size: 40px;
   letter-spacing: 15px;
   font-weight: bold;
@@ -640,7 +645,7 @@ input[type=text] {
 .header-title:hover {
   text-align: center;
   text-decoration: none;
-  color: rgb(124, 181, 236);
+  color: #7cb5ec;
   font-size: 40px;
   letter-spacing: 15px;
   font-weight: bold;
@@ -676,7 +681,7 @@ input[type=text] {
   transition-duration: 0.4s;*/
   /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
   text-align: center;
-  color: rgb(124, 181, 236);
+  color: #7cb5ec;
   background-color: #eee;
   font-size: 33px;
   line-height: 33px;
@@ -685,7 +690,7 @@ input[type=text] {
   height: 40px;
   display: inline-block;
   margin: auto;
-  border: 0px;
+  border: 0;
   border-radius: 2px;
   padding: 0 0 0px 0;
   margin: 0px 0px 0 0;
@@ -693,7 +698,7 @@ input[type=text] {
 
 .vote:hover {
   color: #fff;
-  background-color: rgb(124, 181, 236);
+  background-color: #7cb5ec;
   border-radius: 2px;
 }
 
@@ -705,7 +710,7 @@ input[type=text] {
 
 .voting-buttons {
   display: block;
-  float: left;
+  /*float: left;*/
   margin-top: 10px;
   width: 100%;
 }
@@ -973,13 +978,13 @@ input[type=text] {
 }
 
 .completedTasks p {
-  font-size: 15px;
-  line-height: 9px;
-  margin: 13px 0 0 6px;
+  /*font-size: 15px;*/
+  /*line-height: 9px;*/
+  margin: 0 0 10px;
 }
 
 .result-num {
-  float: right;
+  /*float: right;*/
 }
 
 .taskMenu {
@@ -1000,16 +1005,50 @@ input[type=text] {
   /*@neat-span-columns 6;*/
 }
 
+.completedTasks:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 .completedTasks {
-  font-size: 11px !important;
+  background: #eee;
+  border-radius: 5px;
+  margin-top: 2em;
+  padding: 20px;
   text-align: left;
   /*grid-column: 3/12 !last;*/
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.task-headers-container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.task-name-header {
+  display: block;
+  float: left;
+  margin-right: 2.35765160%;
+  width: 74.41058710%;
+  margin-right: 0;
+}
+
+.task-name-header:last-child {
+  margin-right: 0;
+}
+
+.task-rating-header {
+  text-align: right;
   display: block;
   float: left;
   margin-right: 2.35765160%;
   width: 23.23176130%;
+  margin-right: 0;
 }
 
-.completedTasks:last-child {
+.task-rating-header:last-child {
   margin-right: 0;
 }
